@@ -24,7 +24,7 @@ wyjściu otrzymujemy ocenę.
     -`lokalizacja`
         * ocena uniwersalna( wartości 0-10)
         * ocena dla logiki rozmytej( poor, average, good)
-	-`dodatki`
+    -`dodatki`
         * ocena uniwersalna( wartości 0-10)
         * ocena dla logiki rozmytej( poor, average, good)
 * Consequents (dane wyjściowe)
@@ -50,19 +50,19 @@ price = ctrl.Antecedent(np.arange(0, 11, 1), 'price')
 additions = ctrl.Antecedent(np.arange(0, 11, 1), 'additions')
 rating = ctrl.Consequent(np.arange(0, 11, 1), 'rating')
 
-#komentarz
+#
 localization.automf(3)
 price.automf(3)
 additions.automf(7)
 
-#komentarz
+#
 rating['verylow'] = fuzz.trimf(rating.universe, [0, 2, 2])
 rating['low'] = fuzz.trimf(rating.universe, [2, 4, 4])
 rating['medium'] = fuzz.trimf(rating.universe, [4, 6, 6])
 rating['high'] = fuzz.trimf(rating.universe, [6, 8, 8])
 rating['veryhigh'] = fuzz.trimf(rating.universe, [8, 10, 10])
 
-#komentarz
+#
 localization['average'].view()
 """
 .. image:: PLOT2RST.current_figure
@@ -90,9 +90,9 @@ ratinging_ctrl = ctrl.ControlSystem([rule1, rule2, rule3, rule4, rule5])
 ratinging = ctrl.ControlSystemSimulation(ratinging_ctrl)
 
 #
-ratinging.input['localization'] = 3.7
-ratinging.input['price'] = 9.3
-ratinging.input['additions'] = 8.8
+ratinging.input['localization'] = 5.7
+ratinging.input['price'] = 7.8
+ratinging.input['additions'] = 6.2
 
 #
 ratinging.compute()
