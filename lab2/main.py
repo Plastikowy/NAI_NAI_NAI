@@ -9,7 +9,6 @@ Sebastian Lewandowski (SxLewandowski)
 Aby uruchomić program należy zainstalować następujące paczki:
 pip install numpy
 pip install scikit-fuzzy
-pip install matplotlib
 
 Stworzony przez nas program umożliwia wyliczanie oceny np. hotelu na postawie
 podanych w programie danych wejściowych z wykorzystaniem logiki rozmytej.
@@ -63,7 +62,6 @@ wyjściu otrzymujemy ocenę.
 """
 
 # importujemy potrzebne paczki
-import matplotlib.pyplot as plt
 import numpy as np
 import skfuzzy as fuzz
 from skfuzzy import control as ctrl
@@ -140,9 +138,6 @@ ratinging.input['additions'] = 6.2
 # obliczamy rating
 ratinging.compute()
 
-# wyświetlenie wyniku ratingu
+# wyświetlenie wyniku ratingu oraz ostatniego wykresu
 print(ratinging.output['rating'])
 rating.view(sim=ratinging)
-
-# wyswietlamy wykres za pomocą matplotlib
-plt.show()
