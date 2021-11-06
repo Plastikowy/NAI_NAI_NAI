@@ -86,9 +86,12 @@ rating['medium'] = fuzz.trimf(rating.universe, [4, 6, 6])
 rating['high'] = fuzz.trimf(rating.universe, [6, 8, 8])
 rating['veryhigh'] = fuzz.trimf(rating.universe, [8, 10, 10])
 
-# wyswietlamy zasady dla lokalizacji, ceny i oceny za pomocą wykresów
+# wyswietlamy zasady dla lokalizacji, ceny i dodatków za pomocą wykresów
 localization['average'].view()
 price.view()
+additions.view()
+
+# wyswietlamy pusty wykres oceny(jeszcze przed naniesieniem naszej oceny dla danych wejsciowych)
 rating.view()
 
 # deklarujemy nasze zasady
