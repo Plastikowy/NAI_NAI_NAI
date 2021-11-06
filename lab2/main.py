@@ -32,33 +32,33 @@ wyjściu otrzymujemy ocenę.
         * ocena dla logiki rozmytej( verylow, low, medium, high, veryhigh)
 * Zasady
     - Jeśli cena to  dodatki i lokalizacja będzie „poor” to ocena będzie „verylow”
-    Jeśli lokalizacja będzie "poor" & cena będzie "poor" & dodatki będą "poor" to  rating będzie "verylow")
-    Jeśli lokalizacja będzie "poor" & cena będzie "average" & dodatki będą "poor" to  rating będzie "verylow")
-    Jeśli lokalizacja będzie "poor" & cena będzie "poor" & dodatki będą "average" to  rating będzie "verylow")
-    Jeśli lokalizacja będzie "poor" & cena będzie "average" & dodatki będą "average" to  rating będzie "low")
-    Jeśli lokalizacja będzie "poor" & cena będzie "good" & dodatki będą "average" to  rating będzie "medium")
-    Jeśli lokalizacja będzie "poor" & cena będzie "average" & dodatki będą "good" to  rating będzie "medium")
-    Jeśli lokalizacja będzie "poor" & cena będzie "good" & dodatki będą "good" to  rating będzie "medium")
-    Jeśli lokalizacja będzie "poor" & cena będzie "poor" & dodatki będą "good" to  rating będzie "low")
-    Jeśli lokalizacja będzie "poor" & cena będzie "good" & dodatki będą "poor" to  rating będzie "low")
-    Jeśli lokalizacja będzie "average" & cena będzie "poor" & dodatki będą "poor" to  rating będzie "verylow")
-    Jeśli lokalizacja będzie "average" & cena będzie "average" & dodatki będą "poor" to  rating będzie "low")
-    Jeśli lokalizacja będzie "average" & cena będzie "poor" & dodatki będą "average" to  rating będzie "low")
-    Jeśli lokalizacja będzie "average" & cena będzie "average" & dodatki będą "average" to  rating będzie "medium")
-    Jeśli lokalizacja będzie "average" & cena będzie "good" & dodatki będą "average" to  rating będzie "high")
-    Jeśli lokalizacja będzie "average" & cena będzie "average" & dodatki będą "good" to  rating będzie "high")
-    Jeśli lokalizacja będzie "average" & cena będzie "good" & dodatki będą "good" to  rating będzie "veryhigh")
-    Jeśli lokalizacja będzie "average" & cena będzie "poor" & dodatki będą "good" to  rating będzie "medium")
-    Jeśli lokalizacja będzie "average" & cena będzie "good" & dodatki będą "poor" to  rating będzie "medium")
-    Jeśli lokalizacja będzie "good" & cena będzie "poor" & dodatki będą "poor" to  rating będzie "low")
-    Jeśli lokalizacja będzie "good" & cena będzie "average" & dodatki będą "poor" to  rating będzie "medium")
-    Jeśli lokalizacja będzie "good" & cena będzie "poor" & dodatki będą "average" to  rating będzie "medium")
-    Jeśli lokalizacja będzie "good" & cena będzie "average" & dodatki będą "average" to  rating będzie "high")
-    Jeśli lokalizacja będzie "good" & cena będzie "good" & dodatki będą "average" to  rating będzie "veryhigh")
-    Jeśli lokalizacja będzie "good" & cena będzie "average" & dodatki będą "good" to  rating będzie "veryhigh")
-    Jeśli lokalizacja będzie "good" & cena będzie "good" & dodatki będą "good" to  rating będzie "medium")
-    Jeśli lokalizacja będzie "good" & cena będzie "poor" & dodatki będą "good" to  rating będzie "medium")
-    Jeśli lokalizacja będzie "good" & cena będzie "good" & dodatki będą "poor" to  rating będzie "medium")
+    - Jeśli lokalizacja będzie "poor" & cena będzie "poor" & dodatki będą "poor" to  rating będzie "verylow"
+    - Jeśli lokalizacja będzie "poor" & cena będzie "average" & dodatki będą "poor" to  rating będzie "verylow"
+    - Jeśli lokalizacja będzie "poor" & cena będzie "poor" & dodatki będą "average" to  rating będzie "verylow"
+    - Jeśli lokalizacja będzie "poor" & cena będzie "average" & dodatki będą "average" to  rating będzie "low"
+    - Jeśli lokalizacja będzie "poor" & cena będzie "good" & dodatki będą "average" to  rating będzie "medium"
+    - Jeśli lokalizacja będzie "poor" & cena będzie "average" & dodatki będą "good" to  rating będzie "medium"
+    - Jeśli lokalizacja będzie "poor" & cena będzie "good" & dodatki będą "good" to  rating będzie "medium"
+    - Jeśli lokalizacja będzie "poor" & cena będzie "poor" & dodatki będą "good" to  rating będzie "low"
+    - Jeśli lokalizacja będzie "poor" & cena będzie "good" & dodatki będą "poor" to  rating będzie "low"
+    - Jeśli lokalizacja będzie "average" & cena będzie "poor" & dodatki będą "poor" to  rating będzie "verylow"
+    - Jeśli lokalizacja będzie "average" & cena będzie "average" & dodatki będą "poor" to  rating będzie "low"
+    - Jeśli lokalizacja będzie "average" & cena będzie "poor" & dodatki będą "average" to  rating będzie "low"
+    - Jeśli lokalizacja będzie "average" & cena będzie "average" & dodatki będą "average" to  rating będzie "medium"
+    - Jeśli lokalizacja będzie "average" & cena będzie "good" & dodatki będą "average" to  rating będzie "high"
+    - Jeśli lokalizacja będzie "average" & cena będzie "average" & dodatki będą "good" to  rating będzie "high"
+    - Jeśli lokalizacja będzie "average" & cena będzie "good" & dodatki będą "good" to  rating będzie "veryhigh"
+    - Jeśli lokalizacja będzie "average" & cena będzie "poor" & dodatki będą "good" to  rating będzie "medium"
+    - Jeśli lokalizacja będzie "average" & cena będzie "good" & dodatki będą "poor" to  rating będzie "medium"
+    - Jeśli lokalizacja będzie "good" & cena będzie "poor" & dodatki będą "poor" to  rating będzie "low"
+    - Jeśli lokalizacja będzie "good" & cena będzie "average" & dodatki będą "poor" to  rating będzie "medium"
+    - Jeśli lokalizacja będzie "good" & cena będzie "poor" & dodatki będą "average" to  rating będzie "medium"
+    - Jeśli lokalizacja będzie "good" & cena będzie "average" & dodatki będą "average" to  rating będzie "high"
+    - Jeśli lokalizacja będzie "good" & cena będzie "good" & dodatki będą "average" to  rating będzie "veryhigh"
+    - Jeśli lokalizacja będzie "good" & cena będzie "average" & dodatki będą "good" to  rating będzie "veryhigh"
+    - Jeśli lokalizacja będzie "good" & cena będzie "good" & dodatki będą "good" to  rating będzie "medium"
+    - Jeśli lokalizacja będzie "good" & cena będzie "poor" & dodatki będą "good" to  rating będzie "medium"
+    - Jeśli lokalizacja będzie "good" & cena będzie "good" & dodatki będą "poor" to  rating będzie "medium"
 
 """
 
@@ -75,7 +75,7 @@ price = ctrl.Antecedent(np.arange(0, 11, 1), 'price')
 additions = ctrl.Antecedent(np.arange(0, 11, 1), 'additions')
 rating = ctrl.Consequent(np.arange(0, 11, 1), 'rating')
 
-#
+# dodajemy automatycznie 3 poziomy dla naszych zmiennych ( poor, average, good)
 localization.automf(3)
 price.automf(3)
 additions.automf(3)
@@ -126,8 +126,8 @@ rule27 = ctrl.Rule(localization['good'] & price['good'] & additions['poor'], rat
 
 # ControlSystem jest to klasa bazowa zawierajaca nasze zasady
 ratinging_ctrl = ctrl.ControlSystem([rule1, rule2, rule3, rule4, rule5, rule6, rule7, rule8, rule9, rule10,
-                                     rule11, rule12, rule13, rule14, rule15, rule16, rule17, rule18, rule19, rule20,
-                                     rule21, rule22, rule23, rule24, rule25, rule26, rule27])
+                                     rule11, rule12, rule13, rule14, rule15, rule16, rule17, rule18, rule19,
+                                     rule20, rule21, rule22, rule23, rule24, rule25, rule26, rule27])
 
 # ControlSystemSimulation tworzy kontroler na podstawie naszych zasad
 ratinging = ctrl.ControlSystemSimulation(ratinging_ctrl)
