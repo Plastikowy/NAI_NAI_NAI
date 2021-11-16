@@ -61,6 +61,7 @@ wyjściu otrzymujemy ocenę.
 
 """
 
+
 # importujemy potrzebne paczki
 import numpy as np
 import skfuzzy as fuzz
