@@ -298,7 +298,7 @@
              "rating": 7
            },
            {
-             "movieTitle": "John Wick: Chapter 2",
+             "movieTitle": "John Wick 2",
              "rating": 6
            },
            {
@@ -1506,7 +1506,7 @@
              "rating": 7
            },
            {
-             "movieTitle": "ames Bond: No Time To Die",
+             "movieTitle": "James Bond: No Time To Die",
              "rating": 9
            }
       ],
@@ -1756,7 +1756,7 @@
              "rating": 3
            },
            {
-             "movieTitle": "Harry Potter and the Sorcerer's Ston",
+             "movieTitle": "Harry Potter and the Sorcerer's Stone",
              "rating": 6
            }
       ],
@@ -2014,7 +2014,7 @@
              "rating": 6
            },
            {
-             "movieTitle": "Spider-Man: Far From Hom",
+             "movieTitle": "Spider-Man: Far From Home",
              "rating": 7
            }
       ]
