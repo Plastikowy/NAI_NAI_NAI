@@ -1,0 +1,2022 @@
+{
+   "person":
+   {
+      "Pawel Czapiewski":
+      [
+      {
+          "movieTitle": "The Hunt for Red October",
+          "rating": 10
+        },
+        {
+          "movieTitle": "Rick & Morty",
+          "rating": 10
+        },
+        {
+          "movieTitle": "The Big Bang Theory",
+          "rating": 8
+        },
+        {
+          "movieTitle": "Braveheart",
+          "rating": 10
+        },
+        {
+          "movieTitle": "The Expanse",
+          "rating": 7
+        },
+        {
+          "movieTitle": "South Park",
+          "rating": 9
+        },
+        {
+          "movieTitle": "Frozen",
+          "rating": 5
+        },
+        {
+          "movieTitle": "Bridget Jones's Diary",
+          "rating": 6
+        },
+        {
+          "movieTitle": "Captain America: Civil War",
+          "rating": 3
+        },
+        {
+          "movieTitle": "Avengers: Age of Ultron",
+          "rating": 2
+        },
+        {
+          "movieTitle": "Terminator 2: Judgement Day",
+          "rating": 9
+        },
+        {
+          "movieTitle": "Planeta Singli",
+          "rating": 7
+        },
+        {
+          "movieTitle": "List do M.",
+          "rating": 7
+        },
+        {
+          "movieTitle": "List do M. 2",
+          "rating": 2
+        },
+        {
+          "movieTitle": "Forrest Gump",
+          "rating": 10
+        },
+        {
+          "movieTitle": "Ex Machina",
+          "rating": 10
+        },
+        {
+          "movieTitle": "Gran Torino",
+          "rating": 9
+        },
+        {
+          "movieTitle": "Cicha Noc",
+          "rating": 1
+        },
+        {
+          "movieTitle": "Battleship",
+          "rating": 1
+        },
+        {
+          "movieTitle": "A Star is born",
+          "rating": 2
+        },
+        {
+          "movieTitle": "Captain Phillips",
+          "rating": 9
+        },
+        {
+          "movieTitle": "Grand Hotel Budapest",
+          "rating": 9
+        },
+        {
+          "movieTitle": "Wyjazd Integracyjny",
+          "rating": 1
+        },
+        {
+          "movieTitle": "John Wick",
+          "rating": 7
+        },
+        {
+          "movieTitle": "Narcos",
+          "rating": 10
+        },
+        {
+          "movieTitle": "Terminal",
+          "rating": 8
+        },
+        {
+          "movieTitle": "Her",
+          "rating": 8
+        },
+        {
+          "movieTitle": "Whiplash",
+          "rating": 10
+        },
+        {
+          "movieTitle": "The Devil Wears Prada",
+          "rating": 9
+        },
+        {
+          "movieTitle": "La Casa De Papel",
+          "rating": 8
+        }
+      ],
+      "Maciej Rybacki":
+      [
+         {
+             "movieTitle": "Snowpiercer",
+             "rating": 8
+           },
+           {
+             "movieTitle": "New Amsterdam",
+             "rating": 10
+           },
+           {
+             "movieTitle": "Rick & Morty",
+             "rating": 10
+           },
+           {
+             "movieTitle": "Dune",
+             "rating": 10
+           },
+           {
+             "movieTitle": "How I met your mother",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Trailer Park Boys",
+             "rating": 1
+           },
+           {
+             "movieTitle": "Sherlock",
+             "rating": 10
+           },
+           {
+             "movieTitle": "You",
+             "rating": 7
+           },
+           {
+             "movieTitle": "Gotham",
+             "rating": 10
+           },
+           {
+             "movieTitle": "La Casa De Papel",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Direction: Night",
+             "rating": 9
+           },
+           {
+             "movieTitle": "Love, Death & Robots",
+             "rating": 8
+           },
+           {
+             "movieTitle": "The Witcher",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Babydriver",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Ex Machina",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Seven",
+             "rating": 7
+           },
+           {
+             "movieTitle": "How I Became a Gangster. True Story",
+             "rating": 10
+           },
+           {
+             "movieTitle": "The Office",
+             "rating": 1
+           },
+           {
+             "movieTitle": "Dark",
+             "rating": 7
+           },
+           {
+             "movieTitle": "Stranger Things",
+             "rating": 9
+           },
+           {
+             "movieTitle": "The Umbrella Academy",
+             "rating": 2
+           },
+           {
+             "movieTitle": "House of Cards",
+             "rating": 8
+           },
+           {
+             "movieTitle": "The Witcher: Nightmare of the Wolf",
+             "rating": 3
+           },
+           {
+             "movieTitle": "The Billion Dollar Code",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Narcos",
+             "rating": 8
+           },
+           {
+             "movieTitle": "James Bond: No Time To Die",
+             "rating": 10
+           },
+           {
+             "movieTitle": "Lupin",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Inception",
+             "rating": 10
+           },
+           {
+             "movieTitle": "The Suits",
+             "rating": 10
+           },
+           {
+             "movieTitle": "Sex education",
+             "rating": 1
+           }
+      ],
+      "Krystian Dabrowski":
+      [
+         {
+             "movieTitle": "House M.D.",
+             "rating": 8
+           },
+           {
+             "movieTitle": "DOTA: Dragon's Blood",
+             "rating": 7
+           },
+           {
+             "movieTitle": "Lucifer",
+             "rating": 7
+           },
+           {
+             "movieTitle": "Venom: Let There Be Carnage",
+             "rating": 4
+           },
+           {
+             "movieTitle": "The Office",
+             "rating": 6
+           },
+           {
+             "movieTitle": "Gladiator",
+             "rating": 5
+           },
+           {
+             "movieTitle": "Trailer Park Boys",
+             "rating": 7
+           },
+           {
+             "movieTitle": "The Conjuring: The Devil Made Me Do It",
+             "rating": 5
+           },
+           {
+             "movieTitle": "Black Widow",
+             "rating": 4
+           },
+           {
+             "movieTitle": "Norbit",
+             "rating": 7
+           },
+           {
+             "movieTitle": "The Walking Dead",
+             "rating": 8
+           },
+           {
+             "movieTitle": "John Wick",
+             "rating": 7
+           },
+           {
+             "movieTitle": "John Wick: Chapter 2",
+             "rating": 6
+           },
+           {
+             "movieTitle": "Veer-Zaara",
+             "rating": 5
+           },
+           {
+             "movieTitle": "Hardcore Henry",
+             "rating": 9
+           },
+           {
+             "movieTitle": "Dark",
+             "rating": 6
+           },
+           {
+             "movieTitle": "The Haunting of Bly Manor",
+             "rating": 3
+           },
+           {
+             "movieTitle": "Chris Chan: A Comprehensive History",
+             "rating": 10
+           },
+           {
+             "movieTitle": "This Is Monsters",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Kung Fury",
+             "rating": 6
+           },
+           {
+             "movieTitle": "Treasure Planet",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Forrest Gump",
+             "rating": 7
+           },
+           {
+             "movieTitle": "Squid Game",
+             "rating": 7
+           },
+           {
+             "movieTitle": "Atypical",
+             "rating": 9
+           },
+           {
+             "movieTitle": "The Twilight Saga",
+             "rating": 2
+           },
+           {
+             "movieTitle": "The Witcher",
+             "rating": 9
+           },
+           {
+             "movieTitle": "Joker",
+             "rating": 9
+           },
+           {
+             "movieTitle": "The Dark Knight Rises",
+             "rating": 7
+           },
+           {
+             "movieTitle": "Home Alone",
+             "rating": 4
+           },
+           {
+             "movieTitle": "Harry Potter and the Prisoner of Azkaban",
+             "rating": 6
+           },
+           {
+             "movieTitle": "Split",
+             "rating": 6
+           }
+      ],
+      "Lukasz Cwiklinski":
+      [
+         {
+             "movieTitle": "How High",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Dune",
+             "rating": 7
+           },
+           {
+             "movieTitle": "That '70s Show",
+             "rating": 9
+           },
+           {
+             "movieTitle": "Zombeavers",
+             "rating": 3
+           },
+           {
+             "movieTitle": "James Bond: No Time To Die",
+             "rating": 5
+           },
+           {
+             "movieTitle": "Superbad",
+             "rating": 8
+           }
+      ],
+      "Rafal Tecza":
+      [
+         {
+             "movieTitle": "Limitless",
+             "rating": 9
+           },
+           {
+             "movieTitle": "Disenchantment",
+             "rating": 7
+           },
+           {
+             "movieTitle": "Friends",
+             "rating": 8
+           },
+           {
+             "movieTitle": "The Big Bang Theory",
+             "rating": 7
+           },
+           {
+             "movieTitle": "The Hunger Games",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Constantine",
+             "rating": 9
+           },
+           {
+             "movieTitle": "Daredevil",
+             "rating": 6
+           },
+           {
+             "movieTitle": "Black Mirror",
+             "rating": 7
+           },
+           {
+             "movieTitle": "District 9",
+             "rating": 10
+           },
+           {
+             "movieTitle": "Matrix",
+             "rating": 9
+           },
+           {
+             "movieTitle": "The Walking Dead",
+             "rating": 3
+           },
+           {
+             "movieTitle": "Wyjazd integracyjny",
+             "rating": 2
+           },
+           {
+             "movieTitle": "Mr. Robot",
+             "rating": 9
+           },
+           {
+             "movieTitle": "La Casa De Papel",
+             "rating": 9
+           },
+           {
+             "movieTitle": "Home Alone",
+             "rating": 5
+           },
+           {
+             "movieTitle": "Avatar",
+             "rating": 7
+           },
+           {
+             "movieTitle": "The 100",
+             "rating": 5
+           },
+           {
+             "movieTitle": "13 Reasons Why",
+             "rating": 2
+           },
+           {
+             "movieTitle": "Under The Dome",
+             "rating": 4
+           },
+           {
+             "movieTitle": "Stranger Things",
+             "rating": 7
+           },
+           {
+             "movieTitle": "The Umbrella Academy",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Altered Carbon",
+             "rating": 9
+           },
+           {
+             "movieTitle": "Travelers",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Back to the Future",
+             "rating": 9
+           },
+           {
+             "movieTitle": "Dark",
+             "rating": 4
+           },
+           {
+             "movieTitle": "3%",
+             "rating": 3
+           },
+           {
+             "movieTitle": "Jessica Jones",
+             "rating": 9
+           },
+           {
+             "movieTitle": "The Witcher",
+             "rating": 9
+           },
+           {
+             "movieTitle": "Spider-Man: Far From Home",
+             "rating": 7
+           },
+           {
+             "movieTitle": "Squid Game",
+             "rating": 6
+           },
+           {
+             "movieTitle": "Joker",
+             "rating": 8
+           }
+      ],
+      "Bartosz Bizon":
+      [
+         {
+             "movieTitle": "The Big Bang Theory",
+             "rating": 4
+           },
+           {
+             "movieTitle": "Dark",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Venom",
+             "rating": 7
+           },
+           {
+             "movieTitle": "Child's Play",
+             "rating": 6
+           },
+           {
+             "movieTitle": "Deadpool",
+             "rating": 7
+           },
+           {
+             "movieTitle": "Deadpool 2",
+             "rating": 8
+           },
+           {
+             "movieTitle": "A Beautiful Mind",
+             "rating": 8
+           },
+           {
+             "movieTitle": "The Hangover",
+             "rating": 7
+           },
+           {
+             "movieTitle": "Hobbit",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Swiss Army Man",
+             "rating": 4
+           },
+           {
+             "movieTitle": "Forrest Gump",
+             "rating": 9
+           }
+      ],
+      "Krzysztof Windorpski":
+      [
+         {
+             "movieTitle": "Taboo",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Rick & Morty",
+             "rating": 10
+           },
+           {
+             "movieTitle": "How I met your mother",
+             "rating": 7
+           },
+           {
+             "movieTitle": "Black Mirror",
+             "rating": 9
+           },
+           {
+             "movieTitle": "Legend",
+             "rating": 7
+           },
+           {
+             "movieTitle": "YOU",
+             "rating": 7
+           },
+           {
+             "movieTitle": "Sex/Life",
+             "rating": 1
+           },
+           {
+             "movieTitle": "Talented Mr Ripley",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Grant Torino",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Hannibal",
+             "rating": 7
+           },
+           {
+             "movieTitle": "John Wick",
+             "rating": 7
+           },
+           {
+             "movieTitle": "John Wick 2",
+             "rating": 7
+           },
+           {
+             "movieTitle": "John Wick 3",
+             "rating": 6
+           },
+           {
+             "movieTitle": "Forrest Gump",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Matrix",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Mr. Robot",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Kac Wawa",
+             "rating": 2
+           },
+           {
+             "movieTitle": "Lost in translation",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Terminator",
+             "rating": 7
+           },
+           {
+             "movieTitle": "Locke",
+             "rating": 3
+           },
+           {
+             "movieTitle": "Locke & Key",
+             "rating": 6
+           },
+           {
+             "movieTitle": "Dunkirk",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Public enemies",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Fear and loathing in Las Vegas",
+             "rating": 9
+           },
+           {
+             "movieTitle": "The Professor",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Watchmen",
+             "rating": 5
+           },
+           {
+             "movieTitle": "Wanted: Weapons of Fate",
+             "rating": 7
+           }
+      ],
+      "Iwona Pietka":
+      [
+         {
+             "movieTitle": "Fight Club",
+             "rating": 8
+           },
+           {
+             "movieTitle": "The Rocky Horror Picture Show",
+             "rating": 9
+           },
+           {
+             "movieTitle": "The Road to El Dorado",
+             "rating": 7
+           },
+           {
+             "movieTitle": "Gran Torino",
+             "rating": 9
+           },
+           {
+             "movieTitle": "Constantine",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Monty Python and the Holy Grail",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Terminal",
+             "rating": 10
+           },
+           {
+             "movieTitle": "Inception",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Inglourious Basterds",
+             "rating": 7
+           },
+           {
+             "movieTitle": "The Lord of the Rings: The Fellowship of the Ring",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Matrix",
+             "rating": 7
+           },
+           {
+             "movieTitle": "Hannibal",
+             "rating": 10
+           },
+           {
+             "movieTitle": "Scent of a Woman",
+             "rating": 9
+           },
+           {
+             "movieTitle": "The Office",
+             "rating": 6
+           },
+           {
+             "movieTitle": "That '70s Show",
+             "rating": 9
+           },
+           {
+             "movieTitle": "A Clockwork Orange",
+             "rating": 2
+           },
+           {
+             "movieTitle": "Rubber",
+             "rating": 3
+           },
+           {
+             "movieTitle": "365 dni",
+             "rating": 1
+           },
+           {
+             "movieTitle": "Ghostbusters 2",
+             "rating": 2
+           },
+           {
+             "movieTitle": "The Room",
+             "rating": 3
+           },
+           {
+             "movieTitle": "Nerd",
+             "rating": 2
+           }
+      ],
+      "Tomasz Samol":
+      [
+         {
+             "movieTitle": "Ex Machina",
+             "rating": 7
+           },
+           {
+             "movieTitle": "American Psycho",
+             "rating": 10
+           },
+           {
+             "movieTitle": "Unbreakable",
+             "rating": 8
+           },
+           {
+             "movieTitle": "The Girl Next Door",
+             "rating": 8
+           },
+           {
+             "movieTitle": "American Beauty",
+             "rating": 10
+           },
+           {
+             "movieTitle": "Malena",
+             "rating": 10
+           },
+           {
+             "movieTitle": "Justice League The Flashpoint Paradox",
+             "rating": 10
+           },
+           {
+             "movieTitle": "Dune",
+             "rating": 10
+           },
+           {
+             "movieTitle": "Venom: Let There Be Carnage",
+             "rating": 3
+           },
+           {
+             "movieTitle": "Avengers: Endgame",
+             "rating": 9
+           },
+           {
+             "movieTitle": "The Purge",
+             "rating": 2
+           },
+           {
+             "movieTitle": "Seksmisja",
+             "rating": 10
+           },
+           {
+             "movieTitle": "Matrix",
+             "rating": 10
+           },
+           {
+             "movieTitle": "Kac Vegas",
+             "rating": 4
+           },
+           {
+             "movieTitle": "Small World",
+             "rating": 6
+           },
+           {
+             "movieTitle": "Forrest Gump",
+             "rating": 10
+           },
+           {
+             "movieTitle": "Good Will Hunting",
+             "rating": 10
+           },
+           {
+             "movieTitle": "Avatar",
+             "rating": 6
+           },
+           {
+             "movieTitle": "Intouchables",
+             "rating": 7
+           },
+           {
+             "movieTitle": "K-PAX",
+             "rating": 9
+           },
+           {
+             "movieTitle": "Alice in Wonderland",
+             "rating": 4
+           },
+           {
+             "movieTitle": "No Country For Old Men",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Back to the Future",
+             "rating": 10
+           },
+           {
+             "movieTitle": "Alien",
+             "rating": 7
+           },
+           {
+             "movieTitle": "365 dni",
+             "rating": 1
+           },
+           {
+             "movieTitle": "Transformers: Age of Extinction",
+             "rating": 3
+           },
+           {
+             "movieTitle": "Suicide Squad",
+             "rating": 4
+           },
+           {
+             "movieTitle": "Joker",
+             "rating": 5
+           },
+           {
+             "movieTitle": "Saw 3",
+             "rating": 2
+           },
+           {
+             "movieTitle": "Kobiety Mafii",
+             "rating": 2
+           }
+      ],
+      "Sebastian Lewandowski":
+      [
+         {
+             "movieTitle": "Saving Private Ryan",
+             "rating": 9
+           },
+           {
+             "movieTitle": "Company of Heroes",
+             "rating": 10
+           },
+           {
+             "movieTitle": "The Pacific",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Top Gun",
+             "rating": 9
+           },
+           {
+             "movieTitle": "Midway",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Alexander",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Kac Wawa",
+             "rating": 2
+           },
+           {
+             "movieTitle": "The Patriot",
+             "rating": 9
+           },
+           {
+             "movieTitle": "Bitwa pod Wiedniem",
+             "rating": 1
+           },
+           {
+             "movieTitle": "1920 Bitwa Warszawska",
+             "rating": 2
+           },
+           {
+             "movieTitle": "Tajemnica Westerplatte",
+             "rating": 2
+           },
+           {
+             "movieTitle": "Pearl Harbor",
+             "rating": 7
+           }
+      ],
+      "Nikodem Strawa":
+      [
+         {
+             "movieTitle": "The Office PL",
+             "rating": 7
+           },
+           {
+             "movieTitle": "The Office",
+             "rating": 9
+           },
+           {
+             "movieTitle": "Dune",
+             "rating": 7
+           },
+           {
+             "movieTitle": "Black Widow",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Inglourious Basterds",
+             "rating": 10
+           },
+           {
+             "movieTitle": "Once Upon a Time... In Hollywood",
+             "rating": 9
+           },
+           {
+             "movieTitle": "Interstellar",
+             "rating": 10
+           },
+           {
+             "movieTitle": "Vikings",
+             "rating": 9
+           },
+           {
+             "movieTitle": "Game of Thrones",
+             "rating": 9
+           },
+           {
+             "movieTitle": "The Big Bang Theory",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Young Sheldon",
+             "rating": 7
+           },
+           {
+             "movieTitle": "Rick & Morty",
+             "rating": 9
+           },
+           {
+             "movieTitle": "Big Short",
+             "rating": 8
+           },
+           {
+             "movieTitle": "The Wolf of Wall Street",
+             "rating": 9
+           },
+           {
+             "movieTitle": "Squid Game",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Mr. Robot",
+             "rating": 9
+           },
+           {
+             "movieTitle": "Family Guy",
+             "rating": 7
+           },
+           {
+             "movieTitle": "Bojack Horseman",
+             "rating": 7
+           },
+           {
+             "movieTitle": "Narcos",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Peaky Blinders",
+             "rating": 10
+           },
+           {
+             "movieTitle": "The Witcher",
+             "rating": 9
+           },
+           {
+             "movieTitle": "Britannia",
+             "rating": 6
+           },
+           {
+             "movieTitle": "Westworld",
+             "rating": 9
+           },
+           {
+             "movieTitle": "A Beautiful Mind",
+             "rating": 9
+           },
+           {
+             "movieTitle": "The Queen's Gambit",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Avengers: Endgame",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Avengers: Infinity War",
+             "rating": 9
+           },
+           {
+             "movieTitle": "Avengers: Age of Ultron",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Joker",
+             "rating": 9
+           },
+           {
+             "movieTitle": "Polityka",
+             "rating": 3
+           },
+           {
+             "movieTitle": "Breaking Bad",
+             "rating": 8
+           }
+      ],
+      "Adrian Szostak":
+      [
+         {
+             "movieTitle": "Forrest Gump",
+             "rating": 10
+           },
+           {
+             "movieTitle": "Sherlock",
+             "rating": 10
+           },
+           {
+             "movieTitle": "Whiplash",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Gran Torino",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Friends",
+             "rating": 9
+           },
+           {
+             "movieTitle": "The Shawshank Redemption",
+             "rating": 9
+           },
+           {
+             "movieTitle": "Kler",
+             "rating": 5
+           },
+           {
+             "movieTitle": "Boze Cialo",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Seven",
+             "rating": 10
+           },
+           {
+             "movieTitle": "Inception",
+             "rating": 10
+           },
+           {
+             "movieTitle": "Nomadland",
+             "rating": 6
+           },
+           {
+             "movieTitle": "Planeta Singli",
+             "rating": 7
+           },
+           {
+             "movieTitle": "Matrix",
+             "rating": 6
+           },
+           {
+             "movieTitle": "One Flew Over the Cuckoo's Nest",
+             "rating": 7
+           },
+           {
+             "movieTitle": "The Silence of the Lambs",
+             "rating": 9
+           },
+           {
+             "movieTitle": "The Lord of the Rings: The Fellowship of the Ring",
+             "rating": 5
+           },
+           {
+             "movieTitle": "Lupin",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Top Gun",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Ex Machina",
+             "rating": 7
+           },
+           {
+             "movieTitle": "Intouchables",
+             "rating": 9
+           },
+           {
+             "movieTitle": "Two and a Half Men",
+             "rating": 6
+           },
+           {
+             "movieTitle": "Black Mirror",
+             "rating": 8
+           },
+           {
+             "movieTitle": "The Big Bang Theory",
+             "rating": 7
+           },
+           {
+             "movieTitle": "Rick & Morty",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Dark",
+             "rating": 7
+           },
+           {
+             "movieTitle": "Stranger Things",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Breaking Bad",
+             "rating": 6
+           },
+           {
+             "movieTitle": "Joker",
+             "rating": 7
+           },
+           {
+             "movieTitle": "Interstellar",
+             "rating": 9
+           },
+           {
+             "movieTitle": "The Game",
+             "rating": 8
+           },
+           {
+             "movieTitle": "House of Cards",
+             "rating": 6
+           }
+      ],
+      "Malgorzata Cichowlas":
+      [
+         {
+             "movieTitle": "Xtro",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Na rauszu",
+             "rating": 6
+           },
+           {
+             "movieTitle": "Basic Instinct",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Turbo Kid",
+             "rating": 7
+           },
+           {
+             "movieTitle": "Palm Springs",
+             "rating": 7
+           },
+           {
+             "movieTitle": "La noche de 12 años",
+             "rating": 8
+           },
+           {
+             "movieTitle": "News of the World",
+             "rating": 7
+           },
+           {
+             "movieTitle": "The Christmas Chronicles",
+             "rating": 4
+           },
+           {
+             "movieTitle": "The Midnight Sky",
+             "rating": 6
+           },
+           {
+             "movieTitle": "The Trial of the Chicago 7",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Tenet",
+             "rating": 7
+           },
+           {
+             "movieTitle": "Shot Caller",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Le Mans '66",
+             "rating": 9
+           },
+           {
+             "movieTitle": "Knives Out",
+             "rating": 9
+           },
+           {
+             "movieTitle": "Donnie Brasco",
+             "rating": 8
+           },
+           {
+             "movieTitle": "The Gentlemen",
+             "rating": 9
+           },
+           {
+             "movieTitle": "Jojo Rabbit",
+             "rating": 9
+           },
+           {
+             "movieTitle": "The Irish Man",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Proceder",
+             "rating": 4
+           },
+           {
+             "movieTitle": "Rick & Morty",
+             "rating": 9
+           },
+           {
+             "movieTitle": "Squid game",
+             "rating": 7
+           },
+           {
+             "movieTitle": "Lighthouse",
+             "rating": 9
+           },
+           {
+             "movieTitle": "Elfy",
+             "rating": 2
+           },
+           {
+             "movieTitle": "Cicha noc, smierci noc 2",
+             "rating": 2
+           },
+           {
+             "movieTitle": "Bohemian Rhapsody",
+             "rating": 7
+           },
+           {
+             "movieTitle": "Star Wars: The Rise of Skywalker",
+             "rating": 5
+           },
+           {
+             "movieTitle": "Glass",
+             "rating": 5
+           },
+           {
+             "movieTitle": "Parasite",
+             "rating": 7
+           },
+           {
+             "movieTitle": "Botoks",
+             "rating": 1
+           },
+           {
+             "movieTitle": "Smolensk",
+             "rating": 1
+           },
+           {
+             "movieTitle": "Kac Wawa",
+             "rating": 1
+           }
+      ],
+      "Julian Chodorowski":
+      [
+          {
+             "movieTitle": "Schindler's List",
+             "rating": 8
+           },
+           {
+             "movieTitle": "The Pianist",
+             "rating": 7
+           },
+           {
+             "movieTitle": "Full Metal Jacket",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Enemy at the Gates",
+             "rating": 10
+           },
+           {
+             "movieTitle": "Black Hawk Down",
+             "rating": 9
+           },
+           {
+             "movieTitle": "So weit die FuBe tragen",
+             "rating": 7
+           },
+           {
+             "movieTitle": "The Lord of the Rings: The Fellowship of the Ring",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Penguins of Madagascar",
+             "rating": 10
+           },
+           {
+             "movieTitle": "Wall-E",
+             "rating": 7
+           },
+           {
+             "movieTitle": "Shrek 4",
+             "rating": 5
+           },
+           {
+             "movieTitle": "Christopher Robin",
+             "rating": 10
+           },
+           {
+             "movieTitle": "Ice Age 2",
+             "rating": 4
+           },
+           {
+             "movieTitle": "Tekken",
+             "rating": 6
+           },
+           {
+             "movieTitle": "Rocky",
+             "rating": 10
+           },
+           {
+             "movieTitle": "Super Shark",
+             "rating": 2
+           },
+           {
+             "movieTitle": "The Room",
+             "rating": 2
+           },
+           {
+             "movieTitle": "Ogniem i mieczem",
+             "rating": 3
+           },
+           {
+             "movieTitle": "Mis",
+             "rating": 4
+           },
+           {
+             "movieTitle": "Kill Bill",
+             "rating": 6
+           },
+           {
+             "movieTitle": "Fifty Shades of Grey",
+             "rating": 1
+           },
+           {
+             "movieTitle": "Game of Thrones",
+             "rating": 3
+           },
+           {
+             "movieTitle": "Rick & Morty",
+             "rating": 2
+           },
+           {
+             "movieTitle": "Phineas and Ferb",
+             "rating": 5
+           },
+           {
+             "movieTitle": "D-Day",
+             "rating": 10
+           },
+           {
+             "movieTitle": "Pitbull",
+             "rating": 3
+           },
+           {
+             "movieTitle": "Kobiety Mafii",
+             "rating": 1
+           },
+           {
+             "movieTitle": "House M.D.",
+             "rating": 7
+           },
+           {
+             "movieTitle": "Fast & Furious",
+             "rating": 9
+           },
+           {
+             "movieTitle": "Matrix",
+             "rating": 6
+           },
+           {
+             "movieTitle": "The Witcher",
+             "rating": 1
+           },
+           {
+             "movieTitle": "365 dni",
+             "rating": 1
+           }
+      ],
+      "Lukasz Reinke":
+      [
+         {
+             "movieTitle": "The Dark Knight",
+             "rating": 10
+           },
+           {
+             "movieTitle": "The Office",
+             "rating": 9
+           },
+           {
+             "movieTitle": "The Island",
+             "rating": 7
+           },
+           {
+             "movieTitle": "The Great Gatsby",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Shutter Island",
+             "rating": 10
+           },
+           {
+             "movieTitle": "Inception",
+             "rating": 10
+           },
+           {
+             "movieTitle": "Matrix",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Law Abiding Citizen",
+             "rating": 9
+           },
+           {
+             "movieTitle": "Shrek",
+             "rating": 9
+           },
+           {
+             "movieTitle": "The Number 23",
+             "rating": 7
+           },
+           {
+             "movieTitle": "Ace Ventura: Pet Detective",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Harry Potter and the Order Of The Phoenix",
+             "rating": 7
+           },
+           {
+             "movieTitle": "ames Bond: No Time To Die",
+             "rating": 9
+           }
+      ],
+      "Konrad Chrzanowski":
+      [
+         {
+             "movieTitle": "Dune",
+             "rating": 9
+           },
+           {
+             "movieTitle": "It's always sunny in philadelphia",
+             "rating": 10
+           },
+           {
+             "movieTitle": "How I met your mother",
+             "rating": 3
+           },
+           {
+             "movieTitle": "The Big Bang Theory",
+             "rating": 1
+           },
+           {
+             "movieTitle": "Egzorcysta 3",
+             "rating": 9
+           },
+           {
+             "movieTitle": "Black Dynamite",
+             "rating": 10
+           },
+           {
+             "movieTitle": "Na wspolnej",
+             "rating": 3
+           },
+           {
+             "movieTitle": "Seven",
+             "rating": 9
+           },
+           {
+             "movieTitle": "The Wire",
+             "rating": 10
+           },
+           {
+             "movieTitle": "The Sopranos",
+             "rating": 10
+           },
+           {
+             "movieTitle": "Tenet",
+             "rating": 5
+           },
+           {
+             "movieTitle": "The Lord of the Rings: The Fellowship of the Ring",
+             "rating": 10
+           },
+           {
+             "movieTitle": "Airplane",
+             "rating": 7
+           },
+           {
+             "movieTitle": "Battleship",
+             "rating": 1
+           },
+           {
+             "movieTitle": "Blade Runner",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Escape from New York",
+             "rating": 9
+           },
+           {
+             "movieTitle": "The Thing",
+             "rating": 10
+           },
+           {
+             "movieTitle": "Big trouble in little china",
+             "rating": 10
+           },
+           {
+             "movieTitle": "They live",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Casino",
+             "rating": 7
+           },
+           {
+             "movieTitle": "Avengers: Endgame",
+             "rating": 4
+           },
+           {
+             "movieTitle": "Doctor Strange",
+             "rating": 3
+           },
+           {
+             "movieTitle": "Thor: Ragnarok",
+             "rating": 7
+           },
+           {
+             "movieTitle": "Hunt for the wilderpeople",
+             "rating": 9
+           },
+           {
+             "movieTitle": "Narcos",
+             "rating": 7
+           },
+           {
+             "movieTitle": "Westworld",
+             "rating": 7
+           },
+           {
+             "movieTitle": "Lighthouse",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Parasite",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Oldboy",
+             "rating": 10
+           },
+           {
+             "movieTitle": "Chaser",
+             "rating": 9
+           }
+      ],
+      "Marcin Biedrzycki":
+      [
+         {
+             "movieTitle": "Knives Out",
+             "rating": 9
+           },
+           {
+             "movieTitle": "Sniper",
+             "rating": 7
+           },
+           {
+             "movieTitle": "John Wick",
+             "rating": 7
+           },
+           {
+             "movieTitle": "Wesele",
+             "rating": 2
+           },
+           {
+             "movieTitle": "Shutter Island",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Inception",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Infiltration",
+             "rating": 7
+           },
+           {
+             "movieTitle": "The Expendables",
+             "rating": 6
+           },
+           {
+             "movieTitle": "The Sopranos",
+             "rating": 10
+           },
+           {
+             "movieTitle": "M jak milosc",
+             "rating": 1
+           },
+           {
+             "movieTitle": "Na wspolnej",
+             "rating": 3
+           },
+           {
+             "movieTitle": "Moda na sukces",
+             "rating": 4
+           },
+           {
+             "movieTitle": "Vikings",
+             "rating": 9
+           },
+           {
+             "movieTitle": "Game of Thrones",
+             "rating": 3
+           },
+           {
+             "movieTitle": "Mandalorian",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Dark",
+             "rating": 6
+           },
+           {
+             "movieTitle": "Black Mirror",
+             "rating": 4
+           },
+           {
+             "movieTitle": "Suits",
+             "rating": 2
+           },
+           {
+             "movieTitle": "Bad Boys",
+             "rating": 6
+           },
+           {
+             "movieTitle": "Spider-Man: Far From Home",
+             "rating": 3
+           },
+           {
+             "movieTitle": "Transformers",
+             "rating": 2
+           },
+           {
+             "movieTitle": "Narcos",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Squid Game",
+             "rating": 6
+           },
+           {
+             "movieTitle": "Ocean's Twelve",
+             "rating": 7
+           },
+           {
+             "movieTitle": "Django",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Creed",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Lupin",
+             "rating": 5
+           },
+           {
+             "movieTitle": "Brickleberry",
+             "rating": 7
+           },
+           {
+             "movieTitle": "Dragon Ball",
+             "rating": 5
+           },
+           {
+             "movieTitle": "Kung Fu Panda",
+             "rating": 3
+           },
+           {
+             "movieTitle": "Harry Potter and the Sorcerer's Ston",
+             "rating": 6
+           }
+      ],
+      "Tomasz Sosinski":
+      [
+         {
+             "movieTitle": "Pulp Fiction",
+             "rating": 9
+           },
+           {
+             "movieTitle": "Inception",
+             "rating": 9
+           },
+           {
+             "movieTitle": "Beavis and Butt-Head",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Brickleberry",
+             "rating": 9
+           },
+           {
+             "movieTitle": "Lucifer",
+             "rating": 6
+           },
+           {
+             "movieTitle": "Zlotopolscy",
+             "rating": 10
+           },
+           {
+             "movieTitle": "Rambo",
+             "rating": 7
+           },
+           {
+             "movieTitle": "Plebania",
+             "rating": 4
+           },
+           {
+             "movieTitle": "Dark",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Squid Game",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Gomorra",
+             "rating": 10
+           },
+           {
+             "movieTitle": "Goodfellas",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Scarface",
+             "rating": 7
+           },
+           {
+             "movieTitle": "La Casa De Papel",
+             "rating": 6
+           },
+           {
+             "movieTitle": "The 100",
+             "rating": 4
+           },
+           {
+             "movieTitle": "300",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Tomb Raider",
+             "rating": 6
+           },
+           {
+             "movieTitle": "Killer",
+             "rating": 9
+           },
+           {
+             "movieTitle": "Psy",
+             "rating": 9
+           },
+           {
+             "movieTitle": "Psy 2",
+             "rating": 9
+           },
+           {
+             "movieTitle": "Toy Story",
+             "rating": 9
+           },
+           {
+             "movieTitle": "Dragon Ball",
+             "rating": 9
+           },
+           {
+             "movieTitle": "Tsubasa",
+             "rating": 7
+           },
+           {
+             "movieTitle": "John Wick",
+             "rating": 6
+           },
+           {
+             "movieTitle": "Wyjazd Integracyjny",
+             "rating": 3
+           },
+           {
+             "movieTitle": "Westworld",
+             "rating": 6
+           },
+           {
+             "movieTitle": "House of Cards",
+             "rating": 7
+           },
+           {
+             "movieTitle": "The Witcher",
+             "rating": 7
+           },
+           {
+             "movieTitle": "The Lord of the Rings: The Fellowship of the Ring",
+             "rating": 9
+           },
+           {
+             "movieTitle": "Hobbit",
+             "rating": 9
+           },
+           {
+             "movieTitle": "Joker",
+             "rating": 7
+           }
+      ],
+      "Hubert Korzeniewski":
+      [
+         {
+             "movieTitle": "Fight Club",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Dune",
+             "rating": 9
+           },
+           {
+             "movieTitle": "Sonic the Hedgehog",
+             "rating": 6
+           },
+           {
+             "movieTitle": "Harry Potter and the Sorcerer's Stone",
+             "rating": 6
+           },
+           {
+             "movieTitle": "Egzorcysta",
+             "rating": 6
+           },
+           {
+             "movieTitle": "Over the Hedge",
+             "rating": 8
+           },
+           {
+             "movieTitle": "The Twilight Saga",
+             "rating": 2
+           },
+           {
+             "movieTitle": "Infiltration",
+             "rating": 7
+           },
+           {
+             "movieTitle": "Dark",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Sherlock Holmes",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Kung Fu Panda",
+             "rating": 9
+           },
+           {
+             "movieTitle": "Pulp Fiction",
+             "rating": 9
+           },
+           {
+             "movieTitle": "Matrix",
+             "rating": 7
+           },
+           {
+             "movieTitle": "House of Cards",
+             "rating": 7
+           },
+           {
+             "movieTitle": "Loving Vincent",
+             "rating": 7
+           },
+           {
+             "movieTitle": "Chlopaki nie placza",
+             "rating": 10
+           },
+           {
+             "movieTitle": "300",
+             "rating": 7
+           },
+           {
+             "movieTitle": "Black Mirror",
+             "rating": 8
+           },
+           {
+             "movieTitle": "The Lord of the Rings: The Fellowship of the Ring",
+             "rating": 10
+           },
+           {
+             "movieTitle": "Hobbit",
+             "rating": 9
+           },
+           {
+             "movieTitle": "Star Wars",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Toy Story",
+             "rating": 7
+           },
+           {
+             "movieTitle": "The Witcher",
+             "rating": 9
+           },
+           {
+             "movieTitle": "Jojo Rabbit",
+             "rating": 8
+           },
+           {
+             "movieTitle": "The Godfather",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Interstellar",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Joker",
+             "rating": 8
+           },
+           {
+             "movieTitle": "Squid Game",
+             "rating": 6
+           },
+           {
+             "movieTitle": "Terminator",
+             "rating": 6
+           },
+           {
+             "movieTitle": "Transformers",
+             "rating": 4
+           },
+           {
+             "movieTitle": "Spider-Man 2",
+             "rating": 6
+           },
+           {
+             "movieTitle": "Spider-Man: Far From Hom",
+             "rating": 7
+           }
+      ]
+   }
+}
