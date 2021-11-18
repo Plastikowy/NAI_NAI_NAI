@@ -1,7 +1,5 @@
-{
-   "person":
-   {
-      "Pawel Czapiewski":
+ {
+   "Pawel Czapiewski":
       [
       {
           "movieTitle": "The Hunt for Red October",
@@ -124,7 +122,7 @@
           "rating": 8
         }
       ],
-      "Maciej Rybacki":
+   "Maciej Rybacki":
       [
          {
              "movieTitle": "Snowpiercer",
@@ -247,7 +245,7 @@
              "rating": 1
            }
       ],
-      "Krystian Dabrowski":
+   "Krystian Dabrowski":
       [
          {
              "movieTitle": "House M.D.",
@@ -374,7 +372,7 @@
              "rating": 6
            }
       ],
-      "Lukasz Cwiklinski":
+   "Lukasz Cwiklinski":
       [
          {
              "movieTitle": "How High",
@@ -401,7 +399,7 @@
              "rating": 8
            }
       ],
-      "Rafal Tecza":
+   "Rafal Tecza":
       [
          {
              "movieTitle": "Limitless",
@@ -528,7 +526,7 @@
              "rating": 8
            }
       ],
-      "Bartosz Bizon":
+   "Bartosz Bizon":
       [
          {
              "movieTitle": "The Big Bang Theory",
@@ -575,7 +573,7 @@
              "rating": 9
            }
       ],
-      "Krzysztof Windorpski":
+   "Krzysztof Windorpski":
       [
          {
              "movieTitle": "Taboo",
@@ -686,7 +684,7 @@
              "rating": 7
            }
       ],
-      "Iwona Pietka":
+   "Iwona Pietka":
       [
          {
              "movieTitle": "Fight Club",
@@ -773,7 +771,7 @@
              "rating": 2
            }
       ],
-      "Tomasz Samol":
+   "Tomasz Samol":
       [
          {
              "movieTitle": "Ex Machina",
@@ -896,7 +894,7 @@
              "rating": 2
            }
       ],
-      "Sebastian Lewandowski":
+   "Sebastian Lewandowski":
       [
          {
              "movieTitle": "Saving Private Ryan",
@@ -947,7 +945,7 @@
              "rating": 7
            }
       ],
-      "Nikodem Strawa":
+   "Nikodem Strawa":
       [
          {
              "movieTitle": "The Office PL",
@@ -1074,7 +1072,7 @@
              "rating": 8
            }
       ],
-      "Adrian Szostak":
+   "Adrian Szostak":
       [
          {
              "movieTitle": "Forrest Gump",
@@ -1201,7 +1199,7 @@
              "rating": 6
            }
       ],
-      "Malgorzata Cichowlas":
+   "Malgorzata Cichowlas":
       [
          {
              "movieTitle": "Xtro",
@@ -1328,7 +1326,7 @@
              "rating": 1
            }
       ],
-      "Julian Chodorowski":
+   "Julian Chodorowski":
       [
           {
              "movieTitle": "Schindler's List",
@@ -1455,7 +1453,7 @@
              "rating": 1
            }
       ],
-      "Lukasz Reinke":
+   "Lukasz Reinke":
       [
          {
              "movieTitle": "The Dark Knight",
@@ -1510,7 +1508,7 @@
              "rating": 9
            }
       ],
-      "Konrad Chrzanowski":
+   "Konrad Chrzanowski":
       [
          {
              "movieTitle": "Dune",
@@ -1633,7 +1631,7 @@
              "rating": 9
            }
       ],
-      "Marcin Biedrzycki":
+   "Marcin Biedrzycki":
       [
          {
              "movieTitle": "Knives Out",
@@ -1760,7 +1758,7 @@
              "rating": 6
            }
       ],
-      "Tomasz Sosinski":
+   "Tomasz Sosinski":
       [
          {
              "movieTitle": "Pulp Fiction",
@@ -1887,7 +1885,7 @@
              "rating": 7
            }
       ],
-      "Hubert Korzeniewski":
+   "Hubert Korzeniewski":
       [
          {
              "movieTitle": "Fight Club",
@@ -2018,5 +2016,4 @@
              "rating": 7
            }
       ]
-   }
-}
+ }
