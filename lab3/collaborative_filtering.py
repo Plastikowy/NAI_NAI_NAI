@@ -40,11 +40,12 @@ def create_films_set():
     for name in similars_users_names:
         # print(data[name])
         savefilms(data[name])
+    # print(films)
 
     #we need to remove lecturer seen movies
     for paul_film in data[user]:
         films.remove(paul_film)
-    #print(films)
+    # print(films)
 
 def find_recommended_films():
     #initialize variables for describing recommended films
@@ -59,7 +60,7 @@ def find_recommended_films():
                   if (len(recommended_films) < 5):
                       if (film in data[name] and data[name][film] == score_index):
                           # print(film, 'equals', data[name][film])
-                          recommended_films.append(film)
+                          recommended_films.add(film)
         score_index-=1
 
 def find_not_recommended_films():
@@ -75,17 +76,18 @@ def find_not_recommended_films():
                   if (len(not_recommended_films) < 5):
                       if (film in data[name] and data[name][film] == score_index):
                           # print(film, 'equals', data[name][film])
-                          not_recommended_films.append(film)
+                          not_recommended_films.add(film)
         score_index+=1
 
 #function to save films to set
 def savefilms(user_data):
     for film in user_data:
         films.add(film)
+        # print(film)
 
 if __name__=='__main__':
-    recommended_films = []
-    not_recommended_films = []
+    recommended_films = set()
+    not_recommended_films = set()
     similars_users_names = []
     films = set() #we dont want repeated films
     args = build_arg_parser().parse_args()
@@ -112,6 +114,6 @@ if __name__=='__main__':
     find_recommended_films()
     find_not_recommended_films()
 
-    print('RECOMMENDED FILMS: ', recommended_films)
+    print('\n\nRECOMMENDED FILMS: ', recommended_films)
     print('NOT RECOMMENDED FILMS: ', not_recommended_films)
 
