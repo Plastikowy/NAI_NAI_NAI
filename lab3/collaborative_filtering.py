@@ -1,6 +1,7 @@
 import argparse
 import json
 import numpy as np
+import imdb
 
 from compute_scores import euclidean_score
 
@@ -85,9 +86,18 @@ def savefilms(user_data):
         films.add(film)
         # print(film)
 
+#function to print results with plot from imdb(film's library) package
+def print_title_and_plot(film_set_to_print):
+    for film in film_set_to_print:
+        movie_description = ia.search_movie(film) #we search film with titles close to ours
+        movieId = movie_description[0].movieID #we pick up the first and most accurate movie and get it's ID
+        movie = ia.get_movie(movieId) #now we get our movie by ID
+        print(film, "\t", movie['plot']) #we print film name with it's plot description
+
 if __name__=='__main__':
-    recommended_films = set()
-    not_recommended_films = set()
+    ia = imdb.IMDb() #creates instance of imdb
+    recommended_films = set() #we dont want repeated films
+    not_recommended_films = set() #we dont want repeated films
     similars_users_names = []
     films = set() #we dont want repeated films
     args = build_arg_parser().parse_args()
@@ -114,6 +124,11 @@ if __name__=='__main__':
     find_recommended_films()
     find_not_recommended_films()
 
-    print('\n\nRECOMMENDED FILMS: ', recommended_films)
-    print('NOT RECOMMENDED FILMS: ', not_recommended_films)
+    print('\n\nRECOMMENDED FILMS: ')
+    print_title_and_plot(recommended_films)
+    print('\nNOT RECOMMENDED FILMS: ')
+    print_title_and_plot(not_recommended_films)
+
+
+
 
