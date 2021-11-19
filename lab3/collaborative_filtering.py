@@ -129,12 +129,26 @@ def print_title_and_plot(film_set_to_print):
         print(film, "\t", movie['plot'])  # we print film name with it's plot description
 
 
+def calculate_user_distance():
+    i = len(similar_users) - 1
+    while i > 0:
+        x = float(similar_users[0][1])
+        y = float(similar_users[i][1])
+        if x - acceptable_diff > y:
+            user_dist.append(similar_users[0])
+        else:
+            user_dist.append(similar_users[i])
+        i -= 1
+
+
 if __name__ == '__main__':
     ia = imdb.IMDb()  # creates instance of imdb
     recommended_films = set()  # we dont want repeated films
     not_recommended_films = set()  # we dont want repeated films
+    acceptable_diff = 0.1  # acceptable diff
 
     similars_users_names = []
+    user_dist = []
     films = set()  # we dont want repeated films
     args = build_arg_parser().parse_args()
     user = args.user
@@ -151,10 +165,16 @@ if __name__ == '__main__':
 
     print('User\t\t\tSimilarity score')
     print('-' * 41)
-    for item in similar_users:
+    # for item in similar_users:
+    #     print(item[0], '\t\t', round(float(item[1]), 2))
+
+    calculate_user_distance()
+
+    for item in user_dist:
         print(item[0], '\t\t', round(float(item[1]), 2))
 
-    add_similar_users_to_list(data, similar_users)
+    add_similar_users_to_list(data, user_dist)
+    #    add_similar_users_to_list(data, similar_users)
     create_films_set()
     find_recommended_films()
     find_not_recommended_films()
