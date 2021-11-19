@@ -29,7 +29,7 @@ import json
 import numpy as np
 import imdb
 
-from compute_scores import euclidean_score
+from compute_scores import euclidean_score, manhattan_score
 
 
 def build_arg_parser():
@@ -165,16 +165,16 @@ if __name__ == '__main__':
 
     print('User\t\t\tSimilarity score')
     print('-' * 41)
-    # for item in similar_users:
-    #     print(item[0], '\t\t', round(float(item[1]), 2))
+    for item in similar_users:
+        print(item[0], '\t\t', round(float(item[1]), 2))
 
     calculate_user_distance()
 
-    for item in user_dist:
-        print(item[0], '\t\t', round(float(item[1]), 2))
+    # for item in user_dist:
+    #     print(item[0], '\t\t', round(float(item[1]), 2))
 
-    add_similar_users_to_list(data, user_dist)
-    #    add_similar_users_to_list(data, similar_users)
+    #add_similar_users_to_list(data, user_dist)
+    add_similar_users_to_list(data, similar_users)
     create_films_set()
     find_recommended_films()
     find_not_recommended_films()
