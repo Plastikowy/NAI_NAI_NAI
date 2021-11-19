@@ -1,5 +1,13 @@
-import argparse
-import json
+"""
+==========================================
+Program to recommend movies which user should/ should not watch
+
+Creators:
+Tomasz Samól (Plastikowy)
+Sebastian Lewandowski (SxLewandowski)
+==========================================
+"""
+
 import numpy as np
 
 

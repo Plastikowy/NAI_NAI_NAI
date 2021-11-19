@@ -1,3 +1,29 @@
+"""
+==========================================
+Program to recommend movies which user should/ should not watch
+
+Creators:
+Tomasz Samól (Plastikowy)
+Sebastian Lewandowski (SxLewandowski)
+==========================================
+Prerequisites:
+Before you run program, you need to install Numpy and imdbpy packages.
+You can use for example use PIP package manager do to that:
+pip install numpy
+pip install imdbpy
+==========================================
+Usage:
+You need to run collaborative_filtering.py with -- user USER flag
+Win:
+.\collaborative_filtering.py --user Sebastian Lewandowski
+
+In output you will get:
+- list of people who like similar movies as person passed in command
+- five recommended movies
+- five not recommended movies
+==========================================
+"""
+
 import argparse
 import json
 import numpy as np
@@ -93,18 +119,20 @@ def savefilms(user_data):
         films.add(film)
         # print(film)
 
-#function to print results with plot from imdb(film's library) package
+
+# function to print results with plot from imdb(film's library) package
 def print_title_and_plot(film_set_to_print):
     for film in film_set_to_print:
-        movie_description = ia.search_movie(film) #we search film with titles close to ours
-        movieId = movie_description[0].movieID #we pick up the first and most accurate movie and get it's ID
-        movie = ia.get_movie(movieId) #now we get our movie by ID
-        print(film, "\t", movie['plot']) #we print film name with it's plot description
+        movie_description = ia.search_movie(film)  # we search film with titles close to ours
+        movieId = movie_description[0].movieID  # we pick up the first and most accurate movie and get it's ID
+        movie = ia.get_movie(movieId)  # now we get our movie by ID
+        print(film, "\t", movie['plot'])  # we print film name with it's plot description
 
-if __name__=='__main__':
-    ia = imdb.IMDb() #creates instance of imdb
-    recommended_films = set() #we dont want repeated films
-    not_recommended_films = set() #we dont want repeated films
+
+if __name__ == '__main__':
+    ia = imdb.IMDb()  # creates instance of imdb
+    recommended_films = set()  # we dont want repeated films
+    not_recommended_films = set()  # we dont want repeated films
 
     similars_users_names = []
     films = set()  # we dont want repeated films
@@ -135,4 +163,3 @@ if __name__=='__main__':
     print_title_and_plot(recommended_films)
     print('\nNOT RECOMMENDED FILMS: ')
     print_title_and_plot(not_recommended_films)
-
