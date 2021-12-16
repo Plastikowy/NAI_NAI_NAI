@@ -6,6 +6,7 @@ from sklearn.preprocessing import LabelEncoder
 from sklearn.metrics import accuracy_score
 from tensorflow.keras import Sequential
 from tensorflow.keras.layers import Dense
+from tensorflow.keras.layers import Dropout
 
 
 # load the dataset
@@ -28,13 +29,16 @@ ionosphere_features = X_ionosphere.shape[1]
 
 # model
 model = Sequential()
-model.add(Dense(10, activation='relu', kernel_initializer='he_normal', input_shape=(ionosphere_features,)))
+model.add(Dense(50, activation='relu', kernel_initializer='he_normal', input_shape=(ionosphere_features,)))
+model.add(Dropout(0.4))
+model.add(Dense(10, activation='relu', kernel_initializer='he_normal'))
+model.add(Dropout(0.4))
 model.add(Dense(1, activation='sigmoid'))
 # compile model
 model.compile(optimizer='adam', loss='binary_crossentropy')
 
 #
-history = model.fit(X_train, y_train, epochs=200, batch_size=32, verbose=0, validation_data=(X_test, y_test))
+history = model.fit(X_train, y_train, epochs=100, batch_size=32, verbose=0, validation_data=(X_test, y_test))
 
 #
 #pred_test = model.predict_classes(X_test)
@@ -47,3 +51,11 @@ score = accuracy_score(y_test, pred_test)
 # print summary statistics
 print('Accuracy: %.3f' % score)
 
+# plot learning curves
+plt.title('Learning curves')
+plt.xlabel('Epoch')
+plt.ylabel('Cross Entropy')
+plt.plot(history.history['loss'], label='train')
+plt.plot(history.history['val_loss'], label='value')
+plt.legend()
+plt.show()
