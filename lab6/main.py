@@ -16,8 +16,7 @@ pip install opencv-python
 
 import cv2
 import numpy as np
-
-cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
+import mediapipe as mp
 
 #TODO:
 #capture video
@@ -28,12 +27,38 @@ cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
 #print crosshair on face
 #print aiming at moving target
 
+#declare video capturing variable
+cap = cv2.VideoCapture(1)
+#declare variable for mediapipe hands modules
+mpHands = mp.solutions.hands
+hands = mpHands.Hands()
+mpDraw = mp.solutions.drawing_utils
+mpDrawStyles = mp.solutions.drawing_styles
+
+#def captureVideo():
+
+
 while(cap.isOpened()):
-    ret, frame1 = cap.read()
-    #print('hello')
-    cv2.imshow('Kamerka', frame1)
+    #captureVideo()
+    ret, frame = cap.read()
+    cv2.imshow('Camera Capture', frame)
+    #convert colours captured from camera to RGB
+    imgRGB = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+    results = hands.process(imgRGB)
+
+    #print(results.multi_hand_landmarks)
+    if results.multi_hand_landmarks:
+        print(results.multi_hand_landmarks)
+        for handLms in results.multi_hand_landmarks:
+            mpDraw.draw_landmarks(
+                frame,
+                handLms,
+                mpHands.HAND_CONNECTIONS,
+                mpDrawStyles.get_default_hand_landmarks_style(),
+                mpDrawStyles.get_default_hand_connections_style())
 
     readKey = cv2.waitKey(10)
+
 
 
 cap.release()
