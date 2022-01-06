@@ -14,7 +14,7 @@ pip install opencv-python
 ==========================================
 """
 
-import cv2
+import cv2 as cv
 import numpy as np
 import mediapipe as mp
 
@@ -28,7 +28,7 @@ import mediapipe as mp
 # print aiming at moving target
 
 # declare video capturing variable
-cap = cv2.VideoCapture(0, cv2.CAP_DSHOW)
+cap = cv.VideoCapture(0, cv.CAP_DSHOW)
 # declare variable for mediapipe hands modules
 mpHands = mp.solutions.hands
 hands = mpHands.Hands()
@@ -36,7 +36,7 @@ mpDraw = mp.solutions.drawing_utils
 mpDrawStyles = mp.solutions.drawing_styles
 
 cascade_path = 'haar_cascade.xml'
-face_cascade = cv2.CascadeClassifier(cascade_path)
+face_cascade = cv.CascadeClassifier(cascade_path)
 
 if face_cascade.empty():
     raise IOError('Unable to load the cascade classifier xml file')
@@ -44,15 +44,15 @@ if face_cascade.empty():
 # def captureVideo():
 
 
-while (cap.isOpened()):
+while cap.isOpened():
     # captureVideo()
     ret, frame = cap.read()
-    cv2.startWindowThread()
-    cv2.namedWindow('Camera Capture')
-    cv2.imshow('Camera Capture', frame)
+    cv.startWindowThread()
+    cv.namedWindow('Camera Capture')
+    cv.imshow('Camera Capture', frame)
 
     # convert colours captured from camera to RGB
-    imgRGB = cv2.cvtColor(frame, cv2.COLOR_BGR2RGB)
+    imgRGB = cv.cvtColor(frame, cv.COLOR_BGR2RGB)
     results = hands.process(imgRGB)
 
     # print(results.multi_hand_landmarks)
@@ -66,12 +66,17 @@ while (cap.isOpened()):
 
     faces_detect = face_cascade.detectMultiScale(frame, scaleFactor=1.3, minNeighbors=3)
 
-    for (x,y,w,h) in faces_detect:
-        cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 0, 255), thickness=4)
+    for (x, y, w, h) in faces_detect:
+        # cv.rectangle(frame, (x, y), (x+w, y+h), (0, 0, 255), thickness=4)
+        cv.circle(frame, (int(x + w / 2), int(y + h / 5)), int(h / 6), (0, 0, 255), thickness=4)
+        cv.line(frame, (int(x + w / 3), int(y + h / 5)), (int(x + 2 * w / 3), int(y + h / 5)), (0, 0, 255),
+                thickness=4)
+        cv.line(frame, (int(x + w / 2), int(y + h / 2.8)), (int(x + w / 2), int(y + h / 20)), (0, 0, 255),
+                thickness=4)
 
-    cv2.imshow('Camera Capture', frame)
+    cv.imshow('Camera Capture', frame)
     # close program by pressing 'q' key
-    if cv2.waitKey(1) & 0xFF == ord('q'):
+    if cv.waitKey(1) & 0xFF == ord('q'):
         break
 
     # readKey = cv2.waitKey(1)
@@ -84,4 +89,4 @@ while (cap.isOpened()):
     #     print('Rysuj kropke')
 
 cap.release()
-cv2.destroyAllWindows()
+cv.destroyAllWindows()
