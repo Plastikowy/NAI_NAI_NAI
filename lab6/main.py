@@ -47,6 +47,7 @@ if face_cascade.empty():
 while cap.isOpened():
     # captureVideo()
     ret, frame = cap.read()
+    _, frame_2 = cap.read()
     cv.startWindowThread()
     cv.namedWindow('Camera Capture')
     cv.imshow('Camera Capture', frame)
@@ -54,6 +55,32 @@ while cap.isOpened():
     # convert colours captured from camera to RGB
     imgRGB = cv.cvtColor(frame, cv.COLOR_BGR2RGB)
     results = hands.process(imgRGB)
+
+    # find difference between two frames
+    diff = cv.absdiff(frame, frame_2)
+    # convert the frame to grayscale
+    diff_gray = cv.cvtColor(diff, cv.COLOR_BGR2GRAY)
+    # apply some blur to smoothen the frame
+    diff_blur = cv.GaussianBlur(diff_gray, (5, 5), 0)
+    # get the binary image
+    _, thresh_bin = cv.threshold(diff_blur, 20, 255, cv.THRESH_BINARY)
+    # find contours
+    contours, hierarchy = cv.findContours(thresh_bin, cv.RETR_TREE, cv.CHAIN_APPROX_SIMPLE)
+
+    # draw the bounding box when the motion is detected
+    for contour in contours:
+        x, y, w, h = cv.boundingRect(contour)
+        if cv.contourArea(contour) > 300:
+            # cv.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
+            # draw crosshair when motion is detected
+            faces_detect = face_cascade.detectMultiScale(frame, scaleFactor=1.3, minNeighbors=3)
+            for (x, y, w, h) in faces_detect:
+                # cv.rectangle(frame, (x, y), (x+w, y+h), (0, 0, 255), thickness=4)
+                cv.circle(frame, (int(x + w / 2), int(y + h / 5)), int(h / 6), (0, 0, 255), thickness=4)
+                cv.line(frame, (int(x + w / 3), int(y + h / 5)), (int(x + 2 * w / 3), int(y + h / 5)), (0, 0, 255),
+                        thickness=4)
+                cv.line(frame, (int(x + w / 2), int(y + h / 2.8)), (int(x + w / 2), int(y + h / 20)), (0, 0, 255),
+                        thickness=4)
 
     # print(results.multi_hand_landmarks)
     if results.multi_hand_landmarks:
@@ -64,15 +91,15 @@ while cap.isOpened():
                                   mpDrawStyles.get_default_hand_landmarks_style(),
                                   mpDrawStyles.get_default_hand_connections_style())
 
-    faces_detect = face_cascade.detectMultiScale(frame, scaleFactor=1.3, minNeighbors=3)
-
-    for (x, y, w, h) in faces_detect:
-        # cv.rectangle(frame, (x, y), (x+w, y+h), (0, 0, 255), thickness=4)
-        cv.circle(frame, (int(x + w / 2), int(y + h / 5)), int(h / 6), (0, 0, 255), thickness=4)
-        cv.line(frame, (int(x + w / 3), int(y + h / 5)), (int(x + 2 * w / 3), int(y + h / 5)), (0, 0, 255),
-                thickness=4)
-        cv.line(frame, (int(x + w / 2), int(y + h / 2.8)), (int(x + w / 2), int(y + h / 20)), (0, 0, 255),
-                thickness=4)
+    # draw crosshair on face
+    # faces_detect = face_cascade.detectMultiScale(frame, scaleFactor=1.3, minNeighbors=3)
+    # for (x, y, w, h) in faces_detect:
+    #     # cv.rectangle(frame, (x, y), (x+w, y+h), (0, 0, 255), thickness=4)
+    #     cv.circle(frame, (int(x + w / 2), int(y + h / 5)), int(h / 6), (0, 0, 255), thickness=4)
+    #     cv.line(frame, (int(x + w / 3), int(y + h / 5)), (int(x + 2 * w / 3), int(y + h / 5)), (0, 0, 255),
+    #             thickness=4)
+    #     cv.line(frame, (int(x + w / 2), int(y + h / 2.8)), (int(x + w / 2), int(y + h / 20)), (0, 0, 255),
+    #             thickness=4)
 
     cv.imshow('Camera Capture', frame)
     # close program by pressing 'q' key
