@@ -35,6 +35,12 @@ hands = mpHands.Hands()
 mpDraw = mp.solutions.drawing_utils
 mpDrawStyles = mp.solutions.drawing_styles
 
+cascade_path = 'haar_cascade.xml'
+face_cascade = cv2.CascadeClassifier(cascade_path)
+
+if face_cascade.empty():
+    raise IOError('Unable to load the cascade classifier xml file')
+
 # def captureVideo():
 
 
@@ -58,15 +64,24 @@ while (cap.isOpened()):
                                   mpDrawStyles.get_default_hand_landmarks_style(),
                                   mpDrawStyles.get_default_hand_connections_style())
 
+    faces_detect = face_cascade.detectMultiScale(frame, scaleFactor=1.3, minNeighbors=3)
+
+    for (x,y,w,h) in faces_detect:
+        cv2.rectangle(frame, (x, y), (x+w, y+h), (0, 0, 255), thickness=4)
+
     cv2.imshow('Camera Capture', frame)
-    readKey = cv2.waitKey(1)
-    if readKey == ord('b'):
-        cv2.imwrite('screenshot_now.jpg', frame)
-        print('Zrzut zrobiony')
-    elif readKey == ord('t'):
-        cv2.circle(frame, (320,240), 30, (255,0,128), 5)
-        cv2.imwrite('screenshot_now.jpg', frame)
-        print('Rysuj kropke')
+    # close program by pressing 'q' key
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+
+    # readKey = cv2.waitKey(1)
+    # if readKey == ord('b'):
+    #     cv2.imwrite('screenshot_now.jpg', frame)
+    #     print('Zrzut zrobiony')
+    # elif readKey == ord('t'):
+    #     cv2.circle(frame, (320,240), 30, (255,0,128), 5)
+    #     cv2.imwrite('screenshot_now.jpg', frame)
+    #     print('Rysuj kropke')
 
 cap.release()
 cv2.destroyAllWindows()
