@@ -16,6 +16,7 @@ pip install opencv-python
 
 import cv2 as cv
 import numpy as np
+import time
 import mediapipe as mp
 
 # TODO:
@@ -42,30 +43,57 @@ if face_cascade.empty():
     raise IOError('Unable to load the cascade classifier xml file')
 
 # def captureVideo():
+ret, frame = cap.read()
+cTime = 0
+pTime = 0
+height, width, channel = frame.shape
+
+ALLOWABLE_MOVE_RANGE = 10
+
+RightHandLandMarksPositionsDictionary = {'nadgarstek': [0, 0],
+                                'kciuk': [0, 0],
+                                'wskazujacy':[0, 0],
+                                'srodkowy':[0, 0],
+                                'serdeczny':[0, 0],
+                                'maly':[0, 0],
+                                }
+
+LeftHandLandMarksPositionsDictionary = {'nadgarstek': [0, 0],
+                                'kciuk': [0, 0],
+                                'wskazujacy': [0, 0],
+                                'srodkowy': [0, 0],
+                                'serdeczny': [0, 0],
+                                'maly': [0, 0]
+                                }
 
 
-while cap.isOpened():
-    # captureVideo()
-    ret, frame = cap.read()
-    _, frame_2 = cap.read()
-    cv.startWindowThread()
-    cv.namedWindow('Camera Capture')
-    cv.imshow('Camera Capture', frame)
 
-    # convert colours captured from camera to RGB
-    imgRGB = cv.cvtColor(frame, cv.COLOR_BGR2RGB)
-    results = hands.process(imgRGB)
+def logPosition(index, pixLocX, pixLocY, whichHand):
+    partOfHandName = ''
+    if index == 0:
+        partOfHandName = 'nadgarstek'
+        print(index, 'nadgarstek = ', pixLocX, pixLocY)
+    elif index == 4:
+        partOfHandName = 'kciuk'
+        print(index, 'kciuk = ', pixLocX, pixLocY)
+    elif index == 8:
+        partOfHandName = 'wskazujacy'
+        print(index, 'wskazujacy = ', pixLocX, pixLocY)
+    elif index == 12:
+        partOfHandName = 'srodkowy'
+        print(index, 'srodkowy = ', pixLocX, pixLocY)
+    elif index == 16:
+        partOfHandName = 'serdeczny'
+        print(index, 'serdeczny = ', pixLocX, pixLocY)
+    elif index == 20:
+        partOfHandName = 'maly'
+        print(index, 'maly = ', pixLocX, pixLocY)
+    if whichHand == 'L':
+        LeftHandLandMarksPositionsDictionary[partOfHandName] = [pixLocX, pixLocY]
+    else:
+        RightHandLandMarksPositionsDictionary[partOfHandName] = [pixLocX, pixLocY]
 
-    # find difference between two frames
-    diff = cv.absdiff(frame, frame_2)
-    # convert the frame to grayscale
-    diff_gray = cv.cvtColor(diff, cv.COLOR_BGR2GRAY)
-    # apply some blur to smoothen the frame
-    diff_blur = cv.GaussianBlur(diff_gray, (5, 5), 0)
-    # get the binary image
-    _, thresh_bin = cv.threshold(diff_blur, 20, 255, cv.THRESH_BINARY)
-    # find contours
-    contours, hierarchy = cv.findContours(thresh_bin, cv.RETR_TREE, cv.CHAIN_APPROX_SIMPLE)
+def drawCrosshair(contours, frame):
 
     # draw the bounding box when the motion is detected
     for contour in contours:
@@ -82,14 +110,54 @@ while cap.isOpened():
                 cv.line(frame, (int(x + w / 2), int(y + h / 2.8)), (int(x + w / 2), int(y + h / 20)), (0, 0, 255),
                         thickness=4)
 
-    # print(results.multi_hand_landmarks)
-    if results.multi_hand_landmarks:
+def drawAndCalculateHands(frame):
+    # convert colours captured from camera to RGB
+    imgRGB = cv.cvtColor(frame, cv.COLOR_BGR2RGB)
+    results = hands.process(imgRGB)
 
-        for handLms in results.multi_hand_landmarks:
-            print(results.multi_hand_landmarks[0])
-            mpDraw.draw_landmarks(frame, handLms, mpHands.HAND_CONNECTIONS,
-                                  mpDrawStyles.get_default_hand_landmarks_style(),
-                                  mpDrawStyles.get_default_hand_connections_style())
+    if results.multi_hand_landmarks:
+        for idx, hand_handedness in enumerate(results.multi_handedness):
+            label = hand_handedness.classification[0].label
+            if label == 'Right':
+                print('\n', idx, 'Right hand: ')
+                for id, landmark in enumerate(results.multi_hand_landmarks[idx].landmark):
+                    pixelLocationX = int(landmark.x * width)
+                    pixelLocationY = int(landmark.y * height)
+                    logPosition(id, pixelLocationX, pixelLocationY, 'R')
+                    #mpDraw.draw_landmarks(frame, results.multi_hand_landmarks[idx], mpHands.HAND_CONNECTIONS)
+            elif label == 'Left':
+                print('\n', idx, 'Left hand: ')
+                for id, landmark in enumerate(results.multi_hand_landmarks[idx].landmark):
+                    pixelLocationX = int(landmark.x * width)
+                    pixelLocationY = int(landmark.y * height)
+                    logPosition(id, pixelLocationX, pixelLocationY, 'L')
+                    #mpDraw.draw_landmarks(frame, results.multi_hand_landmarks[idx], mpHands.HAND_CONNECTIONS)
+
+while cap.isOpened():
+    # captureVideo()
+    ret, frame = cap.read()
+    _, frame_2 = cap.read()
+    cv.imshow('Camera Capture', frame)
+
+    # find difference between two frames
+    diff = cv.absdiff(frame, frame_2)
+    # convert the frame to grayscale
+    diff_gray = cv.cvtColor(diff, cv.COLOR_BGR2GRAY)
+    # apply some blur to smoothen the frame
+    diff_blur = cv.GaussianBlur(diff_gray, (5, 5), 0)
+    # get the binary image
+    _, thresh_bin = cv.threshold(diff_blur, 20, 255, cv.THRESH_BINARY)
+    # find contours
+    contours, hierarchy = cv.findContours(thresh_bin, cv.RETR_TREE, cv.CHAIN_APPROX_SIMPLE)
+
+    drawCrosshair(contours, frame)
+    drawAndCalculateHands(frame)
+
+    cTime = time.time()
+    fps = 1 / (cTime - pTime)
+    pTime = cTime
+
+    cv.putText(frame, str(int(fps)), (10,70), cv.FONT_ITALIC, 3, (255,255,0), 3)
 
     # draw crosshair on face
     # faces_detect = face_cascade.detectMultiScale(frame, scaleFactor=1.3, minNeighbors=3)
@@ -102,18 +170,19 @@ while cap.isOpened():
     #             thickness=4)
 
     cv.imshow('Camera Capture', frame)
+    readKey = cv.waitKey(1)
+
+    if readKey == ord('b'):
+        cv.imwrite('screenshot_now.jpg', frame)
+        print('Zrzut zrobiony')
+    elif readKey == ord('t'):
+        cv.circle(frame, (320,240), 30, (255,0,128), 5)
+        #cv2.imwrite('screenshot_now.jpg', frame)
+        print('Rysuj kropke')
     # close program by pressing 'q' key
-    if cv.waitKey(1) & 0xFF == ord('q'):
+    elif readKey == ord('q'):
         break
 
-    # readKey = cv2.waitKey(1)
-    # if readKey == ord('b'):
-    #     cv2.imwrite('screenshot_now.jpg', frame)
-    #     print('Zrzut zrobiony')
-    # elif readKey == ord('t'):
-    #     cv2.circle(frame, (320,240), 30, (255,0,128), 5)
-    #     cv2.imwrite('screenshot_now.jpg', frame)
-    #     print('Rysuj kropke')
 
 cap.release()
 cv.destroyAllWindows()
