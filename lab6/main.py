@@ -15,6 +15,7 @@ pip install opencv-python
 pip install mediapipe
 ==========================================
 """
+import copy
 
 import cv2 as cv
 import numpy as np
@@ -46,60 +47,69 @@ if face_cascade.empty():
 
 # def captureVideo():
 ret, frame = cap.read()
-cTime = 0
-pTime = 0
-height, width, channel = frame.shape
+cTime = 0 #fps purposes
+pTime = 0 #fps purposes
+height, width, channel = frame.shape #for calculating pixels
 
+motionDetectionOn = 0
+
+KILL_TARGET = 0
 ALLOWABLE_MOVE_RANGE = 10
 
-RightHandLandMarksPositionsDictionary = {'nadgarstek': [0, 0],
-                                         'kciuk': [0, 0],
-                                         'wskazujacy': [0, 0],
-                                         'srodkowy': [0, 0],
-                                         'serdeczny': [0, 0],
-                                         'maly': [0, 0],
-                                         }
+RightHandLandMarksPositionsDictionary = {
+                                # 'nadgarstek': [0, 0],
+                                # 'kciuk': [0, 0],
+                                # 'wskazujacy':[0, 0],
+                                # 'srodkowy':[0, 0],
+                                # 'serdeczny':[0, 0],
+                                # 'maly':[0, 0],
+                                }
 
-LeftHandLandMarksPositionsDictionary = {'nadgarstek': [0, 0],
-                                        'kciuk': [0, 0],
-                                        'wskazujacy': [0, 0],
-                                        'srodkowy': [0, 0],
-                                        'serdeczny': [0, 0],
-                                        'maly': [0, 0]
-                                        }
+LeftHandLandMarksPositionsDictionary = {
+                                # 'nadgarstek': [0, 0],
+                                # 'kciuk': [0, 0],
+                                # 'wskazujacy': [0, 0],
+                                # 'srodkowy': [0, 0],
+                                # 'serdeczny': [0, 0],
+                                # 'maly': [0, 0]
+                                }
 
+Previous_RightHandLandMarksPositionsDictionary = {}
+Previous_LeftHandLandMarksPositionsDictionary = {}
+
+def setLandMarkPosToDict(whichHand, partOfHandName, pX, pY):
+    if whichHand == 'L':
+        LeftHandLandMarksPositionsDictionary[partOfHandName] = [pX, pY]
+    else:
+        RightHandLandMarksPositionsDictionary[partOfHandName] = [pX, pY]
+    #print(whichHand, partOfHandName, pX, pY)
 
 def logPosition(index, pixLocX, pixLocY, whichHand):
     partOfHandName = ''
     if index == 0:
         partOfHandName = 'nadgarstek'
-        print(index, 'nadgarstek = ', pixLocX, pixLocY)
+        setLandMarkPosToDict(whichHand, partOfHandName, pixLocX, pixLocY)
     elif index == 4:
         partOfHandName = 'kciuk'
-        print(index, 'kciuk = ', pixLocX, pixLocY)
+        setLandMarkPosToDict(whichHand, partOfHandName, pixLocX, pixLocY)
     elif index == 8:
         partOfHandName = 'wskazujacy'
-        print(index, 'wskazujacy = ', pixLocX, pixLocY)
+        setLandMarkPosToDict(whichHand, partOfHandName, pixLocX, pixLocY)
     elif index == 12:
         partOfHandName = 'srodkowy'
-        print(index, 'srodkowy = ', pixLocX, pixLocY)
+        setLandMarkPosToDict(whichHand, partOfHandName, pixLocX, pixLocY)
     elif index == 16:
         partOfHandName = 'serdeczny'
-        print(index, 'serdeczny = ', pixLocX, pixLocY)
+        setLandMarkPosToDict(whichHand, partOfHandName, pixLocX, pixLocY)
     elif index == 20:
         partOfHandName = 'maly'
-        print(index, 'maly = ', pixLocX, pixLocY)
-    if whichHand == 'L':
-        LeftHandLandMarksPositionsDictionary[partOfHandName] = [pixLocX, pixLocY]
-    else:
-        RightHandLandMarksPositionsDictionary[partOfHandName] = [pixLocX, pixLocY]
-
+        setLandMarkPosToDict(whichHand, partOfHandName, pixLocX, pixLocY)
 
 def drawCrosshair(contours, frame):
     # draw the bounding box when the motion is detected
     for contour in contours:
         x, y, w, h = cv.boundingRect(contour)
-        if cv.contourArea(contour) > 300:
+        if KILL_TARGET:
             # cv.rectangle(frame, (x, y), (x+w, y+h), (0, 255, 0), 2)
             # draw crosshair when motion is detected
             faces_detect = face_cascade.detectMultiScale(frame, scaleFactor=1.3, minNeighbors=3)
@@ -120,20 +130,46 @@ def drawAndCalculateHands(frame):
         for idx, hand_handedness in enumerate(results.multi_handedness):
             label = hand_handedness.classification[0].label
             if label == 'Right':
-                print('\n', idx, 'Right hand: ')
+                #print('\n', idx, 'Right hand: ')
                 for id, landmark in enumerate(results.multi_hand_landmarks[idx].landmark):
                     pixelLocationX = int(landmark.x * width)
                     pixelLocationY = int(landmark.y * height)
                     logPosition(id, pixelLocationX, pixelLocationY, 'R')
-                    # mpDraw.draw_landmarks(frame, results.multi_hand_landmarks[idx], mpHands.HAND_CONNECTIONS)
+                    if KILL_TARGET == 0:
+                        mpDraw.draw_landmarks(frame, results.multi_hand_landmarks[idx], mpHands.HAND_CONNECTIONS)
+                    cv.imshow('Camera Capture', frame)
             elif label == 'Left':
-                print('\n', idx, 'Left hand: ')
+                #print('\n', idx, 'Left hand: ')
                 for id, landmark in enumerate(results.multi_hand_landmarks[idx].landmark):
                     pixelLocationX = int(landmark.x * width)
                     pixelLocationY = int(landmark.y * height)
                     logPosition(id, pixelLocationX, pixelLocationY, 'L')
-                    # mpDraw.draw_landmarks(frame, results.multi_hand_landmarks[idx], mpHands.HAND_CONNECTIONS)
+                    if KILL_TARGET == 0:
+                        mpDraw.draw_landmarks(frame, results.multi_hand_landmarks[idx], mpHands.HAND_CONNECTIONS)
+                    cv.imshow('Camera Capture', frame)
 
+
+def checkIfTargetMoved():
+    for pos in LeftHandLandMarksPositionsDictionary:
+        if Previous_LeftHandLandMarksPositionsDictionary[pos] is not None:
+            diffX = abs(LeftHandLandMarksPositionsDictionary[pos][0] - Previous_LeftHandLandMarksPositionsDictionary[pos][0])
+            diffY = abs(LeftHandLandMarksPositionsDictionary[pos][1] - Previous_LeftHandLandMarksPositionsDictionary[pos][1])
+            if diffX > ALLOWABLE_MOVE_RANGE or diffY > ALLOWABLE_MOVE_RANGE :
+                return 1
+
+    for pos in RightHandLandMarksPositionsDictionary:
+        if Previous_RightHandLandMarksPositionsDictionary[pos] is not None:
+            diffX = abs(RightHandLandMarksPositionsDictionary[pos][0] - Previous_RightHandLandMarksPositionsDictionary[pos][0])
+            diffY = abs(RightHandLandMarksPositionsDictionary[pos][1] - Previous_RightHandLandMarksPositionsDictionary[pos][1])
+            if diffX > ALLOWABLE_MOVE_RANGE or diffY > ALLOWABLE_MOVE_RANGE :
+                return 1
+
+def saveCurrentPositions():
+    for pos in LeftHandLandMarksPositionsDictionary:
+        Previous_LeftHandLandMarksPositionsDictionary[pos] = LeftHandLandMarksPositionsDictionary[pos]
+
+    for pos in RightHandLandMarksPositionsDictionary:
+        Previous_RightHandLandMarksPositionsDictionary[pos] = RightHandLandMarksPositionsDictionary[pos]
 
 while cap.isOpened():
     # captureVideo()
@@ -152,8 +188,13 @@ while cap.isOpened():
     # find contours
     contours, hierarchy = cv.findContours(thresh_bin, cv.RETR_TREE, cv.CHAIN_APPROX_SIMPLE)
 
-    drawCrosshair(contours, frame)
+    saveCurrentPositions()
     drawAndCalculateHands(frame)
+
+    if motionDetectionOn == 1:
+        KILL_TARGET = checkIfTargetMoved()
+        drawCrosshair(contours, frame)
+
 
     cTime = time.time()
     fps = 1 / (cTime - pTime)
@@ -171,9 +212,15 @@ while cap.isOpened():
         cv.circle(frame, (320, 240), 30, (255, 0, 128), 5)
         # cv2.imwrite('screenshot_now.jpg', frame)
         print('Rysuj kropke')
+    elif readKey == ord('m'):
+        if motionDetectionOn == 0:
+            motionDetectionOn = 1
+        elif motionDetectionOn == 1:
+            motionDetectionOn = 0
     # close program by pressing 'q' key
     elif readKey == ord('q'):
         break
+
 
 cap.release()
 cv.destroyAllWindows()
