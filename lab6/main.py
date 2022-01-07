@@ -3,14 +3,16 @@
 Program to recognize face(squid game) using OpenCV
 
 Creators:
-Tomasz Samól (Plastikowy)
-Sebastian Lewandowski (SxLewandowski)
+Tomasz Samól(Plastikowy)
+Sebastian Lewandowski(SxLewandowski)
 ==========================================
 Prerequisites:
-Before you run program, you need to install Numpy and opencv-python packages.
+Before you run program, you need to install Numpy, opencv-python
+and mediapipe packages.
 You can use for example use PIP package manager do to that:
 pip install numpy
 pip install opencv-python
+pip install mediapipe
 ==========================================
 """
 
@@ -51,21 +53,20 @@ height, width, channel = frame.shape
 ALLOWABLE_MOVE_RANGE = 10
 
 RightHandLandMarksPositionsDictionary = {'nadgarstek': [0, 0],
-                                'kciuk': [0, 0],
-                                'wskazujacy':[0, 0],
-                                'srodkowy':[0, 0],
-                                'serdeczny':[0, 0],
-                                'maly':[0, 0],
-                                }
+                                         'kciuk': [0, 0],
+                                         'wskazujacy': [0, 0],
+                                         'srodkowy': [0, 0],
+                                         'serdeczny': [0, 0],
+                                         'maly': [0, 0],
+                                         }
 
 LeftHandLandMarksPositionsDictionary = {'nadgarstek': [0, 0],
-                                'kciuk': [0, 0],
-                                'wskazujacy': [0, 0],
-                                'srodkowy': [0, 0],
-                                'serdeczny': [0, 0],
-                                'maly': [0, 0]
-                                }
-
+                                        'kciuk': [0, 0],
+                                        'wskazujacy': [0, 0],
+                                        'srodkowy': [0, 0],
+                                        'serdeczny': [0, 0],
+                                        'maly': [0, 0]
+                                        }
 
 
 def logPosition(index, pixLocX, pixLocY, whichHand):
@@ -93,8 +94,8 @@ def logPosition(index, pixLocX, pixLocY, whichHand):
     else:
         RightHandLandMarksPositionsDictionary[partOfHandName] = [pixLocX, pixLocY]
 
-def drawCrosshair(contours, frame):
 
+def drawCrosshair(contours, frame):
     # draw the bounding box when the motion is detected
     for contour in contours:
         x, y, w, h = cv.boundingRect(contour)
@@ -103,12 +104,12 @@ def drawCrosshair(contours, frame):
             # draw crosshair when motion is detected
             faces_detect = face_cascade.detectMultiScale(frame, scaleFactor=1.3, minNeighbors=3)
             for (x, y, w, h) in faces_detect:
-                # cv.rectangle(frame, (x, y), (x+w, y+h), (0, 0, 255), thickness=4)
                 cv.circle(frame, (int(x + w / 2), int(y + h / 5)), int(h / 6), (0, 0, 255), thickness=4)
                 cv.line(frame, (int(x + w / 3), int(y + h / 5)), (int(x + 2 * w / 3), int(y + h / 5)), (0, 0, 255),
                         thickness=4)
                 cv.line(frame, (int(x + w / 2), int(y + h / 2.8)), (int(x + w / 2), int(y + h / 20)), (0, 0, 255),
                         thickness=4)
+
 
 def drawAndCalculateHands(frame):
     # convert colours captured from camera to RGB
@@ -124,14 +125,15 @@ def drawAndCalculateHands(frame):
                     pixelLocationX = int(landmark.x * width)
                     pixelLocationY = int(landmark.y * height)
                     logPosition(id, pixelLocationX, pixelLocationY, 'R')
-                    #mpDraw.draw_landmarks(frame, results.multi_hand_landmarks[idx], mpHands.HAND_CONNECTIONS)
+                    # mpDraw.draw_landmarks(frame, results.multi_hand_landmarks[idx], mpHands.HAND_CONNECTIONS)
             elif label == 'Left':
                 print('\n', idx, 'Left hand: ')
                 for id, landmark in enumerate(results.multi_hand_landmarks[idx].landmark):
                     pixelLocationX = int(landmark.x * width)
                     pixelLocationY = int(landmark.y * height)
                     logPosition(id, pixelLocationX, pixelLocationY, 'L')
-                    #mpDraw.draw_landmarks(frame, results.multi_hand_landmarks[idx], mpHands.HAND_CONNECTIONS)
+                    # mpDraw.draw_landmarks(frame, results.multi_hand_landmarks[idx], mpHands.HAND_CONNECTIONS)
+
 
 while cap.isOpened():
     # captureVideo()
@@ -157,17 +159,7 @@ while cap.isOpened():
     fps = 1 / (cTime - pTime)
     pTime = cTime
 
-    cv.putText(frame, str(int(fps)), (10,70), cv.FONT_ITALIC, 3, (255,255,0), 3)
-
-    # draw crosshair on face
-    # faces_detect = face_cascade.detectMultiScale(frame, scaleFactor=1.3, minNeighbors=3)
-    # for (x, y, w, h) in faces_detect:
-    #     # cv.rectangle(frame, (x, y), (x+w, y+h), (0, 0, 255), thickness=4)
-    #     cv.circle(frame, (int(x + w / 2), int(y + h / 5)), int(h / 6), (0, 0, 255), thickness=4)
-    #     cv.line(frame, (int(x + w / 3), int(y + h / 5)), (int(x + 2 * w / 3), int(y + h / 5)), (0, 0, 255),
-    #             thickness=4)
-    #     cv.line(frame, (int(x + w / 2), int(y + h / 2.8)), (int(x + w / 2), int(y + h / 20)), (0, 0, 255),
-    #             thickness=4)
+    cv.putText(frame, str(int(fps)), (10, 70), cv.FONT_ITALIC, 3, (255, 255, 0), 3)
 
     cv.imshow('Camera Capture', frame)
     readKey = cv.waitKey(1)
@@ -176,13 +168,12 @@ while cap.isOpened():
         cv.imwrite('screenshot_now.jpg', frame)
         print('Zrzut zrobiony')
     elif readKey == ord('t'):
-        cv.circle(frame, (320,240), 30, (255,0,128), 5)
-        #cv2.imwrite('screenshot_now.jpg', frame)
+        cv.circle(frame, (320, 240), 30, (255, 0, 128), 5)
+        # cv2.imwrite('screenshot_now.jpg', frame)
         print('Rysuj kropke')
     # close program by pressing 'q' key
     elif readKey == ord('q'):
         break
-
 
 cap.release()
 cv.destroyAllWindows()
