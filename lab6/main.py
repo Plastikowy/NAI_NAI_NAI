@@ -136,7 +136,13 @@ def drawAndCalculateHands(frame):
                     pixelLocationY = int(landmark.y * height)
                     logPosition(id, pixelLocationX, pixelLocationY, 'R')
                     if KILL_TARGET == 0:
-                        mpDraw.draw_landmarks(frame, results.multi_hand_landmarks[idx], mpHands.HAND_CONNECTIONS)
+                        mpDraw.draw_landmarks(frame, results.multi_hand_landmarks[idx], mpHands.HAND_CONNECTIONS,
+                                              mpDrawStyles.DrawingSpec(color=(0,128,0)),
+                                              mpDrawStyles.DrawingSpec(color=(0,128,0)))
+                    else:
+                        mpDraw.draw_landmarks(frame, results.multi_hand_landmarks[idx], mpHands.HAND_CONNECTIONS,
+                                              mpDrawStyles.DrawingSpec(color=(0, 0, 255)),
+                                              mpDrawStyles.DrawingSpec(color=(0, 0, 255)))
                     cv.imshow('Camera Capture', frame)
             elif label == 'Left':
                 #print('\n', idx, 'Left hand: ')
@@ -145,7 +151,13 @@ def drawAndCalculateHands(frame):
                     pixelLocationY = int(landmark.y * height)
                     logPosition(id, pixelLocationX, pixelLocationY, 'L')
                     if KILL_TARGET == 0:
-                        mpDraw.draw_landmarks(frame, results.multi_hand_landmarks[idx], mpHands.HAND_CONNECTIONS)
+                        mpDraw.draw_landmarks(frame, results.multi_hand_landmarks[idx], mpHands.HAND_CONNECTIONS,
+                                              mpDrawStyles.DrawingSpec(color=(0,128,0)),
+                                              mpDrawStyles.DrawingSpec(color=(0,128,0)))
+                    else:
+                        mpDraw.draw_landmarks(frame, results.multi_hand_landmarks[idx], mpHands.HAND_CONNECTIONS,
+                                              mpDrawStyles.DrawingSpec(color=(0, 0, 255)),
+                                              mpDrawStyles.DrawingSpec(color=(0, 0, 255)))
                     cv.imshow('Camera Capture', frame)
 
 
@@ -163,6 +175,8 @@ def checkIfTargetMoved():
             diffY = abs(RightHandLandMarksPositionsDictionary[pos][1] - Previous_RightHandLandMarksPositionsDictionary[pos][1])
             if diffX > ALLOWABLE_MOVE_RANGE or diffY > ALLOWABLE_MOVE_RANGE :
                 return 1
+
+    return 0
 
 def saveCurrentPositions():
     for pos in LeftHandLandMarksPositionsDictionary:
