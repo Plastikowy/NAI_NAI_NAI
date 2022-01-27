@@ -10,7 +10,6 @@ Before you run program, you need to install: Numpy, matplotlib, Pillow
 IPython, OpenCV and TensorFlow  packages.
 You can use for example use PIP package manager do to that:
 pip install numpy
-pip install matplotlib
 pip install Pillow
 pip install ipython(we recommend v7.31.1)
 pip install opencv-python
@@ -19,7 +18,6 @@ pip install tensorflow
 """
 import cv2
 import cv2 as cv
-import matplotlib.pyplot as plt
 import numpy as np
 from PIL import Image
 import time
@@ -31,21 +29,34 @@ from tensorflow.python.keras import models
 import IPython.display
 
 # Set up some global values here
-content_path = 'baldo_paralotnia.jpg'
-style_path = 'The_Great_Wave_off_Kanagawa.jpg'
-# amount of learning iterations for our AI
-number_of_iterations = 1
+#style examples to use for learning
+style_great_waves = 'The_Great_Wave_off_Kanagawa.jpg'
+style_comic = 'comic_style.jpg'
+style_gouache = 'Gouache-style.jpg'
 
+content_path = 'baldo_paralotnia.jpg'
+style_path = style_gouache
+
+# if we wanna force size of image and fasten learning process
+smallSizeEnabled = 1
+smallSize = 350
+
+# amount of learning iterations for our AI
+number_of_iterations = 100
+every_which_iteration_save_to_file = 20
+
+#rgb to bgr shift values
+RtoB = 103.939
+GtoG = 116.779
+BtoR = 123.68
 
 def load_img(path_to_img):
     img = Image.open(path_to_img)
     long = max(img.size)
     scale = max_dim / long
-    img = img.resize((round(img.size[0] * scale), round(img.size[1] * scale)), Image.ANTIALIAS)
+    img = img.resize((round(img.size[0] * scale), round(img.size[1] * scale)))
 
     img = kp_image.img_to_array(img)
-
-    # We need to broadcast the image array such that it has a batch dimension
     img = np.expand_dims(img, axis=0)
     return img
 
@@ -67,10 +78,10 @@ def deprocess_img(processed_img):
     if len(x.shape) != 3:
         raise ValueError("Invalid input to deprocessing image")
 
-    # perform the inverse of the preprocessing step
-    x[:, :, 0] += 103.939
-    x[:, :, 1] += 116.779
-    x[:, :, 2] += 123.68
+    # zero-centering values because of color conversion
+    x[:, :, 0] += RtoB
+    x[:, :, 1] += GtoG
+    x[:, :, 2] += BtoR
     x = x[:, :, ::-1]
 
     x = np.clip(x, 0, 255).astype('uint8')
@@ -81,13 +92,12 @@ def get_model():
     # we use VGG19 model which is pretrained on data from ImageNet
     vgg = tf.keras.applications.vgg19.VGG19(include_top=False, weights='imagenet')
     vgg.trainable = False
-    # Get output layers corresponding to style and content layers
+
     style_outputs = [vgg.get_layer(name).output for name in style_layers]
     # print("style output:", style_outputs)
     content_outputs = [vgg.get_layer(name).output for name in content_layers]
     # print("content_outputs:", content_outputs)
     model_outputs = style_outputs + content_outputs
-    # print("model_outputs:", model_outputs)
     return models.Model(vgg.input, model_outputs)
 
 
@@ -105,31 +115,11 @@ def gram_matrix(input_tensor):
 
 
 def get_style_loss(base_style, gram_target):
-    """Expects two images of dimension h, w, c"""
-    # height, width, num filters of each layer
-    # We scale the loss at a given layer by the size of the feature map and the number of filters
-    height, width, channels = base_style.get_shape().as_list()
     gram_style = gram_matrix(base_style)
-
-    return tf.reduce_mean(tf.square(gram_style - gram_target))  # / (4. * (channels ** 2) * (width * height) ** 2)
+    return tf.reduce_mean(tf.square(gram_style - gram_target))
 
 
 def get_feature_representations(model, content_path, style_path):
-    """Helper function to compute our content and style feature representations.
-
-    This function will simply load and preprocess both the content and style
-    images from their path. Then it will feed them through the network to obtain
-    the outputs of the intermediate layers.
-
-    Arguments:
-      model: The model that we are using.
-      content_path: The path to the content image.
-      style_path: The path to the style image
-
-    Returns:
-      returns the style features and the content features.
-    """
-    # Load our images in
     content_image = load_and_process_img(content_path)
     style_image = load_and_process_img(style_path)
 
@@ -144,23 +134,6 @@ def get_feature_representations(model, content_path, style_path):
 
 
 def compute_loss(model, loss_weights, init_image, gram_style_features, content_features):
-    """This function will compute the loss total loss.
-
-    Arguments:
-      model: The model that will give us access to the intermediate layers
-      loss_weights: The weights of each contribution of each loss function.
-        (style weight, content weight, and total variation weight)
-      init_image: Our initial base image. This image is what we are updating with
-        our optimization process. We apply the gradients wrt the loss we are
-        calculating to this image.
-      gram_style_features: Precomputed gram matrices corresponding to the
-        defined style layers of interest.
-      content_features: Precomputed outputs from defined content layers of
-        interest.
-
-    Returns:
-      returns the total loss, style loss, content loss, and total variational loss
-    """
     style_weight, content_weight = loss_weights
 
     # Feed our init image through our model. This will give us the content and
@@ -200,7 +173,8 @@ def compute_grads(cfg):
     total_loss = all_loss[0]
     return tape.gradient(total_loss, cfg['init_image']), all_loss
 
-
+#content weight must be larger than style weight, because we want content to stay the same
+#but change the style of content, they're values which describes what we want to be changed
 def run_style_transfer(content_path,
                        style_path,
                        content_weight=1e3,
@@ -235,66 +209,49 @@ def run_style_transfer(content_path,
         'content_features': content_features
     }
 
-    # For displaying
-    num_rows = 2
-    num_cols = 5
-    display_interval = number_of_iterations / (num_rows * num_cols)
-    start_time = time.time()
     global_start = time.time()
 
-    norm_means = np.array([103.939, 116.779, 123.68])
+    # zero-centering values because of color conversion
+    norm_means = np.array([RtoB, GtoG, BtoR])
     min_vals = -norm_means
     max_vals = 255 - norm_means
 
-    imgs = []
     for i in range(number_of_iterations):
         grads, all_loss = compute_grads(cfg)
         loss, style_score, content_score = all_loss
         opt.apply_gradients([(grads, init_image)])
         clipped = tf.clip_by_value(init_image, min_vals, max_vals)
         init_image.assign(clipped)
-        end_time = time.time()
 
         if loss < best_loss:
             # Update best loss and best image from total loss.
             best_loss = loss
             best_img = deprocess_img(init_image.numpy())
 
-        if i % display_interval == 0:
-            start_time = time.time()
+        if i % every_which_iteration_save_to_file == 0:
+            save_result_to_file(best_img, i)
 
-            # Use the .numpy() method to get the concrete numpy array
-            plot_img = init_image.numpy()
-            plot_img = deprocess_img(plot_img)
-            imgs.append(plot_img)
-            IPython.display.clear_output(wait=True)
-            IPython.display.display_png(Image.fromarray(plot_img))
-            print('Iteration: {}'.format(i))
-            print('Total loss: {:.4e}, '
-                  'style loss: {:.4e}, '
-                  'content loss: {:.4e}, '
-                  'time: {:.4f}s'.format(loss, style_score, content_score, time.time() - start_time))
     print('Total time: {:.4f}s'.format(time.time() - global_start))
     IPython.display.clear_output(wait=True)
-    plt.figure(figsize=(14, 4))
-    for i, img in enumerate(imgs):
-        plt.subplot(num_rows, num_cols, i + 1)
-        plt.imshow(img)
-        plt.xticks([])
-        plt.yticks([])
 
     return best_img, best_loss
 
 
 def save_result_to_file(generated_img, iteration=0):
-    print("Generating output image")
+    print(f"Generating output image, iteration {iteration}")
     conv_generated_img = cv.cvtColor(generated_img, cv2.COLOR_BGR2RGB)
     cv.imwrite(f"generated_{iteration}_{style_path.split('.')[0]}.png", conv_generated_img)
 
 
 def calculateMaxDim():
     style_image = Image.open(style_path)
-    return style_image.width
+    content_image = Image.open(content_path)
+    if smallSizeEnabled:
+        return smallSize
+    if style_image.width > content_image.width:
+        return style_image.width
+    else:
+        return content_image.width
 
 
 max_dim = calculateMaxDim()
