@@ -7,5 +7,6 @@ You can use for example use PIP package manager do to that: <br/>
    - pip install matplotlib <br/>
    - pip install Pillow <br/>
    - pip install ipython(we recommend v7.31.1) <br/>
+   - pip install opencv-python <br/>
    - pip install tensorflow <br/>
 3. Image created by program is saved with name _baldo_styled.png_.

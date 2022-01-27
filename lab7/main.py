@@ -7,12 +7,13 @@ Sebastian Lewandowski(SxLewandowski)
 ==========================================
 Prerequisites:
 Before you run program, you need to install: Numpy, matplotlib, Pillow
-IPython and TensorFlow  packages.
+IPython, OpenCV and TensorFlow  packages.
 You can use for example use PIP package manager do to that:
 pip install numpy
 pip install matplotlib
 pip install Pillow
 pip install ipython(we recommend v7.31.1)
+pip install opencv-python
 pip install tensorflow
 ==========================================
 """
