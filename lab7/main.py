@@ -1,3 +1,22 @@
+"""
+==========================================
+Program to compose image using neural style transfer.
+Creators:
+Tomasz Samól(Plastikowy)
+Sebastian Lewandowski(SxLewandowski)
+==========================================
+Prerequisites:
+Before you run program, you need to install: Numpy, matplotlib, Pillow
+IPython and TensorFlow  packages.
+You can use for example use PIP package manager do to that:
+pip install numpy
+pip install matplotlib
+pip install Pillow
+pip install ipython(we recommend v7.31.1)
+pip install tensorflow
+==========================================
+"""
+
 import matplotlib.pyplot as plt
 import matplotlib as mpl
 # mpl.rcParams['figure.figsize'] = (10,10)
@@ -9,14 +28,15 @@ import time
 import functools
 
 import tensorflow as tf
-
 from tensorflow.python.keras.preprocessing import image as kp_image
 from tensorflow.python.keras import models
 from tensorflow.python.keras import losses
 from tensorflow.python.keras import layers
 from tensorflow.python.keras import backend as K
 
-#tf.enable_eager_execution()
+import IPython.display
+
+# tf.enable_eager_execution()
 print("Eager execution: {}".format(tf.executing_eagerly()))
 
 # Set up some global values here
@@ -37,20 +57,22 @@ def load_img(path_to_img):
     img = np.expand_dims(img, axis=0)
     return img
 
+
 def imshow(img, title=None):
-  # Remove the batch dimension
-  out = np.squeeze(img, axis=0)
-  # Normalize for display
-  out = out.astype('uint8')
-  plt.imshow(out)
-  if title is not None:
-    plt.title(title)
-  plt.imshow(out)
+    # Remove the batch dimension
+    out = np.squeeze(img, axis=0)
+    # Normalize for display
+    out = out.astype('uint8')
+    plt.imshow(out)
+    if title is not None:
+        plt.title(title)
+    plt.imshow(out)
+
 
 def load_and_process_img(path_to_img):
-  img = load_img(path_to_img)
-  img = tf.keras.applications.vgg19.preprocess_input(img)
-  return img
+    img = load_img(path_to_img)
+    img = tf.keras.applications.vgg19.preprocess_input(img)
+    return img
 
 
 def deprocess_img(processed_img):
@@ -71,6 +93,7 @@ def deprocess_img(processed_img):
     x = np.clip(x, 0, 255).astype('uint8')
     return x
 
+
 # Content layer where will pull our feature maps
 content_layers = ['block5_conv2']
 
@@ -80,7 +103,7 @@ style_layers = ['block1_conv1',
                 'block3_conv1',
                 'block4_conv1',
                 'block5_conv1'
-               ]
+                ]
 
 num_content_layers = len(content_layers)
 num_style_layers = len(style_layers)
@@ -107,8 +130,9 @@ def get_model():
     # Build model
     return models.Model(vgg.input, model_outputs)
 
+
 def get_content_loss(base_content, target):
-  return tf.reduce_mean(tf.square(base_content - target))
+    return tf.reduce_mean(tf.square(base_content - target))
 
 
 def gram_matrix(input_tensor):
@@ -209,16 +233,12 @@ def compute_loss(model, loss_weights, init_image, gram_style_features, content_f
     return loss, style_score, content_score
 
 
-
 def compute_grads(cfg):
-  with tf.GradientTape() as tape:
-    all_loss = compute_loss(**cfg)
-  # Compute gradients wrt input image
-  total_loss = all_loss[0]
-  return tape.gradient(total_loss, cfg['init_image']), all_loss
-
-
-import IPython.display
+    with tf.GradientTape() as tape:
+        all_loss = compute_loss(**cfg)
+    # Compute gradients wrt input image
+    total_loss = all_loss[0]
+    return tape.gradient(total_loss, cfg['init_image']), all_loss
 
 
 def run_style_transfer(content_path,
@@ -308,29 +328,29 @@ def run_style_transfer(content_path,
 
     return best_img, best_loss
 
+
 best, best_loss = run_style_transfer(content_path, style_path, num_iterations=1000)
 
 Image.fromarray(best)
 
+
 def show_results(best_img, content_path, style_path, show_large_final=True):
-  plt.figure(figsize=(10, 5))
-  content = load_img(content_path)
-  style = load_img(style_path)
+    plt.figure(figsize=(10, 5))
+    content = load_img(content_path)
+    style = load_img(style_path)
 
-  plt.subplot(1, 2, 1)
-  imshow(content, 'Content Image')
+    plt.subplot(1, 2, 1)
+    imshow(content, 'Content Image')
 
-  plt.subplot(1, 2, 2)
-  imshow(style, 'Style Image')
+    plt.subplot(1, 2, 2)
+    imshow(style, 'Style Image')
 
-  if show_large_final:
-    plt.figure(figsize=(10, 10))
+    if show_large_final:
+        plt.figure(figsize=(10, 10))
 
-    plt.imshow(best_img)
-    plt.title('Output Image')
-    plt.show()
+        plt.imshow(best_img)
+        plt.title('Output Image')
+        plt.show()
+
 
 show_results(best, content_path, style_path)
-
-
-
