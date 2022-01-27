@@ -16,7 +16,8 @@ pip install ipython(we recommend v7.31.1)
 pip install tensorflow
 ==========================================
 """
-
+import cv2
+import cv2 as cv
 import matplotlib.pyplot as plt
 import numpy as np
 from PIL import Image
@@ -31,11 +32,9 @@ import IPython.display
 # Set up some global values here
 content_path = 'baldo_paralotnia.jpg'
 style_path = 'The_Great_Wave_off_Kanagawa.jpg'
-number_of_iterations = 100 #amount of learning iterations for our AI
-
+number_of_iterations = 1 #amount of learning iterations for our AI
 
 def load_img(path_to_img):
-    max_dim = 512
     img = Image.open(path_to_img)
     long = max(img.size)
     scale = max_dim / long
@@ -47,20 +46,9 @@ def load_img(path_to_img):
     img = np.expand_dims(img, axis=0)
     return img
 
-
-def imshow(img, title=None):
-    # Remove the batch dimension
-    out = np.squeeze(img, axis=0)
-    # Normalize for display
-    out = out.astype('uint8')
-    plt.imshow(out)
-    if title is not None:
-        plt.title(title)
-    plt.imshow(out)
-
-
 def load_and_process_img(path_to_img):
     img = load_img(path_to_img)
+    #it converts the input image from RGB to BGR and zero-center each color channel with respect to the ImageNet dataset, without scaling
     img = tf.keras.applications.vgg19.preprocess_input(img)
     return img
 
@@ -84,24 +72,16 @@ def deprocess_img(processed_img):
     return x
 
 def get_model():
-    """ Creates our model with access to intermediate layers.
-
-    This function will load the VGG19 model and access the intermediate layers.
-    These layers will then be used to create a new model that will take input image
-    and return the outputs from these intermediate layers from the VGG model.
-
-    Returns:
-      returns a keras model that takes image inputs and outputs the style and
-        content intermediate layers.
-    """
-    # Load our model. We load pretrained VGG, trained on imagenet data
+    # we use VGG19 model which is pretrained on data from ImageNet
     vgg = tf.keras.applications.vgg19.VGG19(include_top=False, weights='imagenet')
     vgg.trainable = False
     # Get output layers corresponding to style and content layers
     style_outputs = [vgg.get_layer(name).output for name in style_layers]
+    #print("style output:", style_outputs)
     content_outputs = [vgg.get_layer(name).output for name in content_layers]
+    #print("content_outputs:", content_outputs)
     model_outputs = style_outputs + content_outputs
-    # Build model
+    #print("model_outputs:", model_outputs)
     return models.Model(vgg.input, model_outputs)
 
 def get_content_loss(base_content, target):
@@ -214,9 +194,11 @@ def run_style_transfer(content_path,
                        style_path,
                        content_weight=1e3,
                        style_weight=1e-2):
-    # We don't need to (or want to) train any layers of our model, so we set their
-    # trainable to false.
+
     model = get_model()
+
+    # we set trainable to false, cause our layers dont know what to do
+    # if we would have gone for second training, then we would set it to True
     for layer in model.layers:
         layer.trainable = False
 
@@ -229,9 +211,6 @@ def run_style_transfer(content_path,
     init_image = tf.Variable(init_image, dtype=tf.float32)
     # Create our optimizer
     opt = tf.optimizers.Adam(learning_rate=5, beta_1=0.99, epsilon=1e-1)
-
-    # For displaying intermediate images
-    iter_count = 1
 
     # Store our best result
     best_loss, best_img = float('inf'), None
@@ -296,25 +275,17 @@ def run_style_transfer(content_path,
 
     return best_img, best_loss
 
-def show_results(best_img, content_path, style_path, show_large_final=True):
-    plt.figure(figsize=(10, 5))
-    content = load_img(content_path)
-    style = load_img(style_path)
+def save_result_to_file(generated_img, iteration = 0):
+    print("Generating output image")
+    conv_generated_img = cv.cvtColor(generated_img, cv2.COLOR_BGR2RGB)
+    cv.imwrite(f"generated_{iteration}_{style_path.split('.')[0]}.png", conv_generated_img)
 
-    plt.subplot(1, 2, 1)
-    imshow(content, 'Content Image')
+def calculateMaxDim():
+    style_image = Image.open(style_path)
+    return style_image.width
 
-    plt.subplot(1, 2, 2)
-    imshow(style, 'Style Image')
-
-    if show_large_final:
-        plt.figure(figsize=(10, 10))
-
-        plt.imshow(best_img)
-        plt.title('Output Image')
-        plt.show()
-
-
+max_dim = calculateMaxDim()
+print("max dim = ", max_dim)
 # Content layer where will pull our feature maps
 content_layers = ['block5_conv2']
 
@@ -333,4 +304,4 @@ best, best_loss = run_style_transfer(content_path, style_path)
 
 Image.fromarray(best)
 
-show_results(best, content_path, style_path)
+save_result_to_file(best, number_of_iterations)
