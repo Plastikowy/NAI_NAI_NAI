@@ -18,30 +18,20 @@ pip install tensorflow
 """
 
 import matplotlib.pyplot as plt
-import matplotlib as mpl
-# mpl.rcParams['figure.figsize'] = (10,10)
-# mpl.rcParams['axes.grid'] = False
-
 import numpy as np
 from PIL import Image
 import time
-import functools
 
 import tensorflow as tf
 from tensorflow.python.keras.preprocessing import image as kp_image
 from tensorflow.python.keras import models
-from tensorflow.python.keras import losses
-from tensorflow.python.keras import layers
-from tensorflow.python.keras import backend as K
 
 import IPython.display
-
-# tf.enable_eager_execution()
-print("Eager execution: {}".format(tf.executing_eagerly()))
 
 # Set up some global values here
 content_path = 'baldo_paralotnia.jpg'
 style_path = 'The_Great_Wave_off_Kanagawa.jpg'
+number_of_iterations = 100 #amount of learning iterations for our AI
 
 
 def load_img(path_to_img):
@@ -93,22 +83,6 @@ def deprocess_img(processed_img):
     x = np.clip(x, 0, 255).astype('uint8')
     return x
 
-
-# Content layer where will pull our feature maps
-content_layers = ['block5_conv2']
-
-# Style layer we are interested in
-style_layers = ['block1_conv1',
-                'block2_conv1',
-                'block3_conv1',
-                'block4_conv1',
-                'block5_conv1'
-                ]
-
-num_content_layers = len(content_layers)
-num_style_layers = len(style_layers)
-
-
 def get_model():
     """ Creates our model with access to intermediate layers.
 
@@ -130,7 +104,6 @@ def get_model():
     # Build model
     return models.Model(vgg.input, model_outputs)
 
-
 def get_content_loss(base_content, target):
     return tf.reduce_mean(tf.square(base_content - target))
 
@@ -143,7 +116,6 @@ def gram_matrix(input_tensor):
     gram = tf.matmul(a, a, transpose_a=True)
     return gram / tf.cast(n, tf.float32)
 
-
 def get_style_loss(base_style, gram_target):
     """Expects two images of dimension h, w, c"""
     # height, width, num filters of each layer
@@ -152,7 +124,6 @@ def get_style_loss(base_style, gram_target):
     gram_style = gram_matrix(base_style)
 
     return tf.reduce_mean(tf.square(gram_style - gram_target))  # / (4. * (channels ** 2) * (width * height) ** 2)
-
 
 def get_feature_representations(model, content_path, style_path):
     """Helper function to compute our content and style feature representations.
@@ -181,7 +152,6 @@ def get_feature_representations(model, content_path, style_path):
     style_features = [style_layer[0] for style_layer in style_outputs[:num_style_layers]]
     content_features = [content_layer[0] for content_layer in content_outputs[num_style_layers:]]
     return style_features, content_features
-
 
 def compute_loss(model, loss_weights, init_image, gram_style_features, content_features):
     """This function will compute the loss total loss.
@@ -232,7 +202,6 @@ def compute_loss(model, loss_weights, init_image, gram_style_features, content_f
     loss = style_score + content_score
     return loss, style_score, content_score
 
-
 def compute_grads(cfg):
     with tf.GradientTape() as tape:
         all_loss = compute_loss(**cfg)
@@ -243,7 +212,6 @@ def compute_grads(cfg):
 
 def run_style_transfer(content_path,
                        style_path,
-                       num_iterations=1000,
                        content_weight=1e3,
                        style_weight=1e-2):
     # We don't need to (or want to) train any layers of our model, so we set their
@@ -281,7 +249,7 @@ def run_style_transfer(content_path,
     # For displaying
     num_rows = 2
     num_cols = 5
-    display_interval = num_iterations / (num_rows * num_cols)
+    display_interval = number_of_iterations / (num_rows * num_cols)
     start_time = time.time()
     global_start = time.time()
 
@@ -290,7 +258,7 @@ def run_style_transfer(content_path,
     max_vals = 255 - norm_means
 
     imgs = []
-    for i in range(num_iterations):
+    for i in range(number_of_iterations):
         grads, all_loss = compute_grads(cfg)
         loss, style_score, content_score = all_loss
         opt.apply_gradients([(grads, init_image)])
@@ -328,12 +296,6 @@ def run_style_transfer(content_path,
 
     return best_img, best_loss
 
-
-best, best_loss = run_style_transfer(content_path, style_path, num_iterations=1000)
-
-Image.fromarray(best)
-
-
 def show_results(best_img, content_path, style_path, show_large_final=True):
     plt.figure(figsize=(10, 5))
     content = load_img(content_path)
@@ -352,5 +314,23 @@ def show_results(best_img, content_path, style_path, show_large_final=True):
         plt.title('Output Image')
         plt.show()
 
+
+# Content layer where will pull our feature maps
+content_layers = ['block5_conv2']
+
+# Style layer we are interested in
+style_layers = ['block1_conv1',
+                'block2_conv1',
+                'block3_conv1',
+                'block4_conv1',
+                'block5_conv1'
+                ]
+
+num_content_layers = len(content_layers)
+num_style_layers = len(style_layers)
+
+best, best_loss = run_style_transfer(content_path, style_path)
+
+Image.fromarray(best)
 
 show_results(best, content_path, style_path)
