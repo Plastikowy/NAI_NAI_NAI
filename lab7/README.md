@@ -26,7 +26,7 @@ Examples:
 
 ![Alt text](./generated_0_The_Great_Wave_off_Kanagawa.png?raw=true "Iteration 0") 
 ![Alt text](./generated_150_The_Great_Wave_off_Kanagawa.png?raw=true "Iteration 150") 
-![Alt text](./generated_350_The_Great_Wave_off_Kanagawa.png?raw=true "Iteration 350") ![Alt text](./The_Great_Wave_off_Kanagawa.jpg width="350" height="350" "Style Image" )
+![Alt text](./generated_350_The_Great_Wave_off_Kanagawa.png?raw=true "Iteration 350") ![Alt text](./The_Great_Wave_off_Kanagawa.jpg?raw=true width="350" height="350" "Style Image" )
 
 ![Alt text](./generated_0_comic_style.png?raw=true "Iteration 0") 
 ![Alt text](./generated_150_comic_style.png?raw=true "Iteration 150") 
