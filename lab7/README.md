@@ -21,3 +21,7 @@ You can use for example use PIP package manager do to that: <br/>
 You can add your styles if you want to, but it is required to create new variable or change existing one
 
 4. Image created by program is saved with name template "generated_{iteration}_{style_path_without_extension}.png"
+
+Examples:
+
+![Alt text](relative/path/to/generated_0_The_Great_Wave_off_Kanagawa.png?raw=true "Title")
