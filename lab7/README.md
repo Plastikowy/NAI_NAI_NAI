@@ -24,4 +24,4 @@ You can add your styles if you want to, but it is required to create new variabl
 
 Examples:
 
-![Alt text](relative/path/to/generated_0_The_Great_Wave_off_Kanagawa.png?raw=true "Title")
+![Alt text](./generated_0_The_Great_Wave_off_Kanagawa.png?raw=true "Title")
