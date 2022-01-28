@@ -42,8 +42,8 @@ smallSizeEnabled = 1
 smallSize = 350
 
 # amount of learning iterations for our AI
-number_of_iterations = 100
-every_which_iteration_save_to_file = 20
+number_of_iterations = 350
+every_which_iteration_save_to_file = 50
 
 #rgb to bgr shift values
 RtoB = 103.939
