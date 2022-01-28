@@ -26,12 +26,12 @@ Examples:
 
 ![Alt text](./generated_0_The_Great_Wave_off_Kanagawa.png?raw=true "Iteration 0") 
 ![Alt text](./generated_150_The_Great_Wave_off_Kanagawa.png?raw=true "Iteration 150") 
-![Alt text](./generated_350_The_Great_Wave_off_Kanagawa.png?raw=true "Iteration 350") ![Alt text]<img src="https://raw.githubusercontent.com/Plastikowy/NAI_NAI_NAI/lab7/lab7/The_Great_Wave_off_Kanagawa.jpg" width="350" height="350" />
+![Alt text](./generated_350_The_Great_Wave_off_Kanagawa.png?raw=true "Iteration 350") <img src="https://raw.githubusercontent.com/Plastikowy/NAI_NAI_NAI/lab7/lab7/The_Great_Wave_off_Kanagawa.jpg" width="350" height="231" />
 
 ![Alt text](./generated_0_comic_style.png?raw=true "Iteration 0") 
 ![Alt text](./generated_150_comic_style.png?raw=true "Iteration 150") 
-![Alt text](./generated_350_comic_style.png?raw=true "Iteration 350") ![Alt text]<img src="https://raw.githubusercontent.com/Plastikowy/NAI_NAI_NAI/lab7/lab7/comic_style.jpg" width="350" height="350" />
+![Alt text](./generated_350_comic_style.png?raw=true "Iteration 350") <img src="https://raw.githubusercontent.com/Plastikowy/NAI_NAI_NAI/lab7/lab7/comic_style.jpg" width="350" height="231" />
 
 ![Alt text](./generated_0_Gouache-style.png?raw=true "Iteration 0") 
 ![Alt text](./generated_150_Gouache-style.png?raw=true "Iteration 150") 
-![Alt text](./generated_350_Gouache-style.png?raw=true "Iteration 350") ![Alt text]<img src="https://raw.githubusercontent.com/Plastikowy/NAI_NAI_NAI/lab7/lab7/Gouache-style.jpg" width="350" height="350" />
+![Alt text](./generated_350_Gouache-style.png?raw=true "Iteration 350") <img src="https://raw.githubusercontent.com/Plastikowy/NAI_NAI_NAI/lab7/lab7/Gouache-style.jpg" width="350" height="231" />
