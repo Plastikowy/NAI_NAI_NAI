@@ -24,4 +24,14 @@ You can add your styles if you want to, but it is required to create new variabl
 
 Examples:
 
-![Alt text](./generated_0_The_Great_Wave_off_Kanagawa.png?raw=true "Title")
+![Alt text](./generated_0_The_Great_Wave_off_Kanagawa.png?raw=true "Iteration 0") 
+![Alt text](./generated_150_The_Great_Wave_off_Kanagawa.png?raw=true "Iteration 150") 
+![Alt text](./generated_350_The_Great_Wave_off_Kanagawa.png?raw=true "Iteration 350")
+
+![Alt text](./generated_0_comic_style.png?raw=true "Iteration 0") 
+![Alt text](./generated_150_comic_style.png?raw=true "Iteration 150") 
+![Alt text](./generated_350_comic_style.png?raw=true "Iteration 350")
+
+![Alt text](./generated_0_Gouache-style.png?raw=true "Iteration 0") 
+![Alt text](./generated_150_Gouache-style.png?raw=true "Iteration 150") 
+![Alt text](./generated_350_Gouache-style.png?raw=true "Iteration 350")
